@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Atelier Baking Lab | 西班牙手作烘焙工作室・台北</title>
+  <meta name="description" content="A Atelier Baking Lab 是位於台北的職人手作烘焙工作室。西班牙傳統食譜 × 現代烘焙美學，提供西班牙瑪德蓮、軟餅乾、軟心布朗尼等精品手作甜點。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       RESET & CUSTOM PROPERTIES
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream:      #F7F2EC;
+      --warm-white: #FDFAF6;
+      --beige:      #EDE6DC;
+      --taupe:      #D3C5B8;
+      --medium:     #B5A496;
+      --warm-gray:  #8A7B72;
+      --dark:       #3E3530;
+      --text:       #3A302A;
+      --accent:     #97847A;
+      --line:       #DDD4C9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ===========================
+       UTILITY
+    =========================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--medium);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .section-divider {
+      width: 36px;
+      height: 2px;
+      background-color: var(--medium);
+      margin-bottom: 36px;
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 40px;
+      transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    #navbar.scrolled {
+      background-color: rgba(253, 250, 246, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 40px;
+      box-shadow: 0 1px 24px rgba(62,53,48,0.07);
+    }
+
+    .nav-logo {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: var(--dark);
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: var(--dark);
+      transition: all 0.3s;
+    }
+
+    /* ===========================
+       MOBILE MENU OVERLAY
+    =========================== */
+    #mobileMenu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+      background-color: var(--warm-white);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+    }
+
+    #mobileMenu.open { display: flex; }
+
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 1.3rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    #mobileMenu a {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--dark);
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/procduct02.png');
+      background-size: cover;
+      background-position: center 25%;
+      filter: brightness(0.48) saturate(0.65);
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+
+    #hero:hover .hero-bg { transform: scale(1.06); }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 40px 24px;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.45);
+      padding: 7px 22px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 14px;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.58);
+      letter-spacing: 0.06em;
+      line-height: 2.1;
+      margin-bottom: 50px;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 14px 42px;
+      border: 1.5px solid rgba(255,255,255,0.65);
+      color: #fff;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      background: transparent;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .btn-ghost:hover {
+      background-color: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.9);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      z-index: 2;
+      animation: bounce 2.4s ease-in-out infinite;
+    }
+
+    .hero-scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 36px;
+      background-color: rgba(255,255,255,0.35);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ===========================
+       ABOUT
+    =========================== */
+    #about {
+      background-color: var(--warm-white);
+      padding: 110px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.93rem;
+      color: var(--warm-gray);
+      line-height: 2.05;
+      margin-bottom: 18px;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .pillar {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .pillar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--medium);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+
+    .pillar-body strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .pillar-body span {
+      font-size: 0.83rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -22px;
+      left: -22px;
+      background-color: var(--cream);
+      padding: 22px 26px;
+      border-left: 3px solid var(--medium);
+      box-shadow: 0 4px 24px rgba(62,53,48,0.08);
+    }
+
+    .about-badge-num {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .about-badge-label {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    /* ===========================
+       MENU
+    =========================== */
+    #menu {
+      background-color: var(--beige);
+      padding: 110px 0;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .menu-header .section-divider {
+      margin: 0 auto 0;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .menu-card {
+      background-color: var(--warm-white);
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 56px rgba(62,53,48,0.13);
+    }
+
+    .card-img-wrap { overflow: hidden; }
+
+    .card-img {
+      width: 100%;
+      height: 265px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .menu-card:hover .card-img { transform: scale(1.06); }
+
+    .card-body { padding: 30px 28px 34px; }
+
+    .card-tag {
+      display: block;
+      font-size: 0.67rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--medium);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--warm-gray);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .card-price {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===========================
+       ORDERING
+    =========================== */
+    #ordering {
+      background-color: var(--warm-white);
+      padding: 110px 0;
+    }
+
+    .ordering-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .methods-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .method-card {
+      display: flex;
+      gap: 22px;
+      padding: 28px 26px;
+      background-color: var(--cream);
+      border-bottom: 2px solid var(--taupe);
+      transition: border-color 0.25s;
+    }
+
+    .method-card:hover { border-color: var(--accent); }
+
+    .method-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+    .method-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .method-desc {
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      line-height: 1.75;
+    }
+
+    .method-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .method-link:hover { color: var(--dark); }
+
+    .ordering-info-box {
+      background-color: var(--dark);
+      padding: 48px 44px;
+      color: var(--cream);
+    }
+
+    .ordering-info-box .section-title { color: var(--cream); }
+    .ordering-info-box .section-divider { background-color: var(--medium); }
+
+    .info-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .info-items li {
+      display: flex;
+      gap: 14px;
+      font-size: 0.87rem;
+      color: rgba(247,242,236,0.72);
+      line-height: 1.75;
+    }
+
+    .info-items .ico {
+      flex-shrink: 0;
+      font-size: 0.95rem;
+      margin-top: 2px;
+    }
+
+    .btn-outline-light {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 36px;
+      border: 1.5px solid rgba(247,242,236,0.4);
+      color: var(--cream);
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .btn-outline-light:hover {
+      background-color: rgba(247,242,236,0.1);
+      border-color: rgba(247,242,236,0.8);
+    }
+
+    /* ===========================
+       CONTACT / FOOTER
+    =========================== */
+    #contact {
+      background-color: var(--cream);
+      padding: 90px 24px 60px;
+      text-align: center;
+    }
+
+    .contact-inner { max-width: 580px; margin: 0 auto; }
+
+    .contact-logo {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .contact-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--medium);
+      margin-bottom: 44px;
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 28px;
+      border: 1px solid var(--taupe);
+      color: var(--dark);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+    }
+
+    .social-btn:hover {
+      background-color: var(--dark);
+      border-color: var(--dark);
+      color: var(--cream);
+    }
+
+    .social-btn svg { flex-shrink: 0; }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--taupe);
+      letter-spacing: 0.1em;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+      line-height: 2;
+    }
+
+    /* ===========================
+       SCROLL-TO-TOP
+    =========================== */
+    #scrollTop {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 42px; height: 42px;
+      background-color: var(--dark);
+      color: var(--cream);
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(12px);
+      z-index: 100;
+    }
+
+    #scrollTop.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* ===========================
+       FADE-IN ANIMATION
+    =========================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 960px) {
+      .about-grid,
+      .ordering-grid {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .about-img-wrap img { height: 340px; }
+
+      .about-badge {
+        bottom: -14px;
+        left: 16px;
+      }
+
+      #navbar { padding: 20px 24px; }
+      #navbar.scrolled { padding: 13px 24px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      #about, #menu, #ordering { padding: 80px 0; }
+
+      .ordering-info-box { padding: 32px 26px; }
+
+      .hero-title { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================
+     NAVIGATION
+========================= -->
+<nav id="navbar">
+  <div class="nav-logo">A Atelier Baking Lab</div>
+  <ul class="nav-links">
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#menu">精選甜點</a></li>
+    <li><a href="#ordering">訂購方式</a></li>
+    <li><a href="#contact">聯絡</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="關閉選單">✕</button>
+  <a href="#about"    onclick="closeMobile()">關於我們</a>
+  <a href="#menu"     onclick="closeMobile()">精選甜點</a>
+  <a href="#ordering" onclick="closeMobile()">訂購方式</a>
+  <a href="#contact"  onclick="closeMobile()">聯絡</a>
+</div>
+
+
+<!-- ========================
+     HERO
+========================= -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Taipei · Artisan Baking Studio</span>
+    <h1 class="hero-title">A Atelier<br>Baking Lab</h1>
+    <p class="hero-subtitle">西班牙傳統手作 × 現代烘焙美學</p>
+    <p class="hero-tagline">
+      遵循歐洲經典工藝，嚴選頂級食材<br>
+      職人甜點，獻給每一個值得被珍惜的瞬間
+    </p>
+    <a href="#menu" class="btn-ghost">探索甜點</a>
+  </div>
+
+  <div class="hero-scroll-hint">Scroll</div>
+</section>
+
+
+<!-- ========================
+     ABOUT
+========================= -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-text">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">從西班牙食譜<br>到台北餐桌</h2>
+        <div class="section-divider"></div>
+        <p>A Atelier Baking Lab 是一間位於台北的手作烘焙工作室，由對西班牙傳統糕點懷抱熱情的職人創立。</p>
+        <p>我們深信每一口甜點都應該承載著文化的溫度與工藝的誠意。以歐洲經典食譜為根基，融入現代烘焙美學，讓每一件甜點都成為一份可品嚐的藝術。</p>
+
+        <div class="about-pillars">
+          <div class="pillar fade-in">
+            <div class="pillar-dot"></div>
+            <div class="pillar-body">
+              <strong>頂級食材嚴選</strong>
+              <span>遵循歐洲工藝標準，每一款甜點皆以最優質的食材精心製作</span>
+            </div>
+          </div>
+          <div class="pillar fade-in">
+            <div class="pillar-dot"></div>
+            <div class="pillar-body">
+              <strong>純手工限量製作</strong>
+              <span>拒絕工廠量產，每一件都是職人親手完成的用心之作</span>
+            </div>
+          </div>
+          <div class="pillar fade-in">
+            <div class="pillar-dot"></div>
+            <div class="pillar-body">
+              <strong>客製化訂購服務</strong>
+              <span>提供禮盒客製化訂購，以及精品咖啡館選品合作洽詢</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-img-wrap fade-in">
+        <img src="images/procduct02.png" alt="A Atelier Baking Lab 手作烘焙" loading="lazy">
+        <div class="about-badge">
+          <div class="about-badge-num">100%</div>
+          <div class="about-badge-label">純手工製作</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     MENU
+========================= -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <span class="section-label">Signature Items</span>
+      <h2 class="section-title">職人招牌甜點</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card fade-in">
+        <div class="card-img-wrap">
+          <img src="images/procduct02.png" alt="西班牙瑪德蓮" class="card-img" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Spanish Madeleine</span>
+          <h3 class="card-title">西班牙瑪德蓮</h3>
+          <p class="card-desc">以西班牙傳統食譜為本，外皮微酥、內裡鬆軟綿密，香氣馥郁。每一口都是香濃溫暖的幸福滋味。</p>
+          <span class="card-price">NT$ 100 起</span>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="card-img-wrap">
+          <img src="images/procduct01.png" alt="手工軟餅乾" class="card-img" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Soft Cookie</span>
+          <h3 class="card-title">手工軟餅乾</h3>
+          <p class="card-desc">職人手感整型，外緣微酥、中心柔軟，嚴選頂級巧克力豆，入口即化的層次讓人難以抗拒。</p>
+          <span class="card-price">NT$ 120 起</span>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="card-img-wrap">
+          <img src="images/procduct03.png" alt="軟心布朗尼" class="card-img" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Fudge Brownie</span>
+          <h3 class="card-title">軟心布朗尼</h3>
+          <p class="card-desc">濃郁可可香氣，外層薄脆、內裡絲滑流心。以歐洲進口頂級可可製成，巧克力愛好者的終極饗宴。</p>
+          <span class="card-price">NT$ 150 起</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     ORDERING
+========================= -->
+<section id="ordering">
+  <div class="container">
+    <div class="ordering-grid">
+
+      <div>
+        <span class="section-label">How to Order</span>
+        <h2 class="section-title">如何訂購</h2>
+        <div class="section-divider"></div>
+
+        <div class="methods-list">
+
+          <div class="method-card fade-in">
+            <span class="method-icon">📩</span>
+            <div>
+              <div class="method-title">Instagram 私訊訂購</div>
+              <p class="method-desc">歡迎透過 Instagram 私訊洽詢菜單、客製化需求及訂購細節，我們將盡快回覆您的訊息。</p>
+              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">前往 Instagram 私訊 →</a>
+            </div>
+          </div>
+
+          <div class="method-card fade-in">
+            <span class="method-icon">🏪</span>
+            <div>
+              <div class="method-title">市集現場購買</div>
+              <p class="method-desc">不定期於台北各地市集設攤，歡迎蒞臨現場品嚐，感受職人手作甜點的溫度與用心。</p>
+              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">追蹤 IG 掌握市集資訊 →</a>
+            </div>
+          </div>
+
+          <div class="method-card fade-in">
+            <span class="method-icon">☕️</span>
+            <div>
+              <div class="method-title">咖啡館選品合作</div>
+              <p class="method-desc">歡迎精品咖啡館業者洽詢選品合作，提供穩定優質的職人甜點供應服務。</p>
+              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">洽詢供應合作 →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="ordering-info-box fade-in">
+        <h2 class="section-title">訂購須知</h2>
+        <div class="section-divider"></div>
+        <ul class="info-items">
+          <li>
+            <span class="ico">📍</span>
+            <span>線上工作室，無實體門市<br>接受訂購後宅配或市集取貨</span>
+          </li>
+          <li>
+            <span class="ico">⏱</span>
+            <span>請提前 3–5 天預約訂購<br>確保您能收到最新鮮的手作甜點</span>
+          </li>
+          <li>
+            <span class="ico">🎁</span>
+            <span>提供客製化口味及禮盒包裝<br>婚禮、活動、企業送禮皆可洽詢</span>
+          </li>
+          <li>
+            <span class="ico">💳</span>
+            <span>價位帶 NT$ 100–200<br>依商品種類及數量而定</span>
+          </li>
+        </ul>
+        <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="btn-outline-light">立即私訊詢問</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     CONTACT / FOOTER
+========================= -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-logo">A Atelier Baking Lab</div>
+    <p class="contact-sub">TAIPEI · ARTISAN BAKING STUDIO</p>
+
+    <div class="social-row">
+      <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        @a_atelier_baking_lab
+      </a>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 A Atelier Baking Lab<br>
+      西班牙傳統手作 × 現代烘焙美學 · Taipei, Taiwan
+    </p>
+  </div>
+</section>
+
+
+<!-- SCROLL TO TOP -->
+<button id="scrollTop" aria-label="回到頂部">↑</button>
+
+
+<!-- ========================
+     JAVASCRIPT
+========================= -->
+<script>
+  /* ----- Navbar scroll ----- */
+  const navbar    = document.getElementById('navbar');
+  const scrollBtn = document.getElementById('scrollTop');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 60);
+    scrollBtn.classList.toggle('visible', y > 400);
+  }, { passive: true });
+
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ----- Mobile menu ----- */
+  const mobileMenu  = document.getElementById('mobileMenu');
+  const navToggle   = document.getElementById('navToggle');
+  const mobileClose = document.getElementById('mobileClose');
+
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  mobileClose.addEventListener('click', closeMobile);
+
+  /* ----- Intersection observer (fade-in) ----- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        // slight stagger for sibling elements
+        const siblings = [...e.target.parentElement.querySelectorAll('.fade-in')];
+        const idx = siblings.indexOf(e.target);
+        setTimeout(() => e.target.classList.add('visible'), idx * 90);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
