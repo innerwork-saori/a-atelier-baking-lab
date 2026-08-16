@@ -573,6 +573,216 @@
     }
 
     /* ===========================
+       ORDER FORM
+    =========================== */
+    #order-form {
+      background-color: var(--beige);
+      padding: 110px 0;
+    }
+
+    .order-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .order-form-intro p {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 2.05;
+      margin-bottom: 16px;
+    }
+
+    .order-notes {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .order-note {
+      display: flex;
+      gap: 12px;
+      font-size: 0.83rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .order-note .ico { flex-shrink: 0; }
+
+    /* Form layout */
+    .netlify-form { display: flex; flex-direction: column; gap: 22px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-group label {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      background-color: var(--warm-white);
+      border: 1px solid var(--line);
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.25s;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7B72' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-products {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      background-color: var(--warm-white);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+    }
+
+    .product-row-name {
+      font-size: 0.87rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .product-row-sub {
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      margin-top: 2px;
+    }
+
+    .product-row select {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.83rem;
+      color: var(--text);
+      background-color: var(--cream);
+      border: 1px solid var(--line);
+      padding: 8px 30px 8px 10px;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238A7B72' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      border-radius: 0;
+      transition: border-color 0.25s;
+    }
+
+    .product-row select:focus { border-color: var(--accent); }
+
+    .product-row-price {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+      text-align: right;
+      min-width: 70px;
+    }
+
+    .form-products-label {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 16px 48px;
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover { background-color: var(--accent); }
+
+    .form-privacy {
+      font-size: 0.74rem;
+      color: var(--medium);
+      line-height: 1.7;
+    }
+
+    /* Success message (hidden by default) */
+    #formSuccess {
+      display: none;
+      background-color: var(--warm-white);
+      border-left: 3px solid var(--accent);
+      padding: 28px 32px;
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.9;
+    }
+
+    #formSuccess strong { color: var(--dark); display: block; margin-bottom: 6px; font-size: 1rem; }
+
+    @media (max-width: 960px) {
+      .order-form-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #order-form { padding: 80px 0; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .product-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .product-row-price { text-align: left; }
+    }
+
+    /* ===========================
        CONTACT / FOOTER
     =========================== */
     #contact {
@@ -726,6 +936,7 @@
     <li><a href="#about">關於我們</a></li>
     <li><a href="#menu">精選甜點</a></li>
     <li><a href="#ordering">訂購方式</a></li>
+    <li><a href="#order-form">線上訂購</a></li>
     <li><a href="#contact">聯絡</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
@@ -736,10 +947,11 @@
 <!-- MOBILE OVERLAY -->
 <div id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="關閉選單">✕</button>
-  <a href="#about"    onclick="closeMobile()">關於我們</a>
-  <a href="#menu"     onclick="closeMobile()">精選甜點</a>
-  <a href="#ordering" onclick="closeMobile()">訂購方式</a>
-  <a href="#contact"  onclick="closeMobile()">聯絡</a>
+  <a href="#about"      onclick="closeMobile()">關於我們</a>
+  <a href="#menu"      onclick="closeMobile()">精選甜點</a>
+  <a href="#ordering"  onclick="closeMobile()">訂購方式</a>
+  <a href="#order-form" onclick="closeMobile()">線上訂購</a>
+  <a href="#contact"   onclick="closeMobile()">聯絡</a>
 </div>
 
 
@@ -944,6 +1156,184 @@
 
 
 <!-- ========================
+     ORDER FORM
+========================= -->
+<section id="order-form">
+  <div class="container">
+    <div class="order-form-grid">
+
+      <!-- Left: intro -->
+      <div class="order-form-intro fade-in">
+        <span class="section-label">Online Order</span>
+        <h2 class="section-title">線上填寫<br>訂購單</h2>
+        <div class="section-divider"></div>
+        <p>填寫以下表單後，我們將於 1–2 個工作天內透過 Instagram 或 Email 與您確認訂單細節及付款方式。</p>
+        <p>如有客製化需求（口味、包裝、禮盒文字），請在備註欄詳細說明。</p>
+
+        <div class="order-notes">
+          <div class="order-note">
+            <span class="ico">⏱</span>
+            <span>請提前 <strong>3–5 天</strong> 預約，以確保最新鮮的品質</span>
+          </div>
+          <div class="order-note">
+            <span class="ico">🚚</span>
+            <span>提供宅配到府或市集現場取貨</span>
+          </div>
+          <div class="order-note">
+            <span class="ico">💳</span>
+            <span>付款方式將於確認訂單時說明</span>
+          </div>
+          <div class="order-note">
+            <span class="ico">🎁</span>
+            <span>婚禮、企業禮盒等大量訂單歡迎備註洽詢</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="fade-in">
+
+        <!-- Netlify success message (shown on redirect back) -->
+        <div id="formSuccess">
+          <strong>感謝您的訂購！🎉</strong>
+          我們已收到您的訂購單，將於 1–2 個工作天內透過 Instagram 或 Email 與您確認細節。
+        </div>
+
+        <!-- Netlify form -->
+        <form
+          name="order"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="netlify-form"
+          id="orderForm"
+        >
+          <!-- Netlify hidden fields -->
+          <input type="hidden" name="form-name" value="order">
+          <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <!-- Contact info -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">姓名 *</label>
+              <input type="text" id="name" name="name" placeholder="您的姓名" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">聯絡電話</label>
+              <input type="tel" id="phone" name="phone" placeholder="0912-345-678">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="instagram">Instagram 帳號</label>
+            <input type="text" id="instagram" name="instagram" placeholder="@your_account（方便私訊聯繫）">
+          </div>
+
+          <!-- Delivery date -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pickup_date">希望取貨 / 到貨日期 *</label>
+              <input type="date" id="pickup_date" name="pickup_date" required>
+            </div>
+            <div class="form-group">
+              <label for="delivery_method">取貨方式 *</label>
+              <select id="delivery_method" name="delivery_method" required>
+                <option value="" disabled selected>請選擇</option>
+                <option value="宅配到府">宅配到府</option>
+                <option value="市集現場取貨">市集現場取貨</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product selection -->
+          <div>
+            <div class="form-products-label">選擇商品 *（至少選一樣）</div>
+            <div class="form-products">
+
+              <div class="product-row">
+                <div>
+                  <div class="product-row-name">西班牙瑪德蓮</div>
+                  <div class="product-row-sub">Spanish Madeleine</div>
+                </div>
+                <select name="qty_madeleine" aria-label="西班牙瑪德蓮數量">
+                  <option value="0">不需要</option>
+                  <option value="1">1 盒</option>
+                  <option value="2">2 盒</option>
+                  <option value="3">3 盒</option>
+                  <option value="4">4 盒</option>
+                  <option value="5">5 盒以上</option>
+                </select>
+                <div class="product-row-price">NT$ 100 起</div>
+              </div>
+
+              <div class="product-row">
+                <div>
+                  <div class="product-row-name">手工軟餅乾</div>
+                  <div class="product-row-sub">Soft Cookie</div>
+                </div>
+                <select name="qty_cookie" aria-label="手工軟餅乾數量">
+                  <option value="0">不需要</option>
+                  <option value="1">1 盒</option>
+                  <option value="2">2 盒</option>
+                  <option value="3">3 盒</option>
+                  <option value="4">4 盒</option>
+                  <option value="5">5 盒以上</option>
+                </select>
+                <div class="product-row-price">NT$ 120 起</div>
+              </div>
+
+              <div class="product-row">
+                <div>
+                  <div class="product-row-name">軟心布朗尼</div>
+                  <div class="product-row-sub">Fudge Brownie</div>
+                </div>
+                <select name="qty_brownie" aria-label="軟心布朗尼數量">
+                  <option value="0">不需要</option>
+                  <option value="1">1 盒</option>
+                  <option value="2">2 盒</option>
+                  <option value="3">3 盒</option>
+                  <option value="4">4 盒</option>
+                  <option value="5">5 盒以上</option>
+                </select>
+                <div class="product-row-price">NT$ 150 起</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Gift / customization -->
+          <div class="form-group">
+            <label for="gift_option">包裝需求</label>
+            <select id="gift_option" name="gift_option">
+              <option value="一般包裝">一般包裝</option>
+              <option value="禮盒包裝">禮盒包裝（加購）</option>
+              <option value="客製化禮盒">客製化禮盒（婚禮 / 企業禮品）</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label for="notes">備註 / 客製化說明</label>
+            <textarea id="notes" name="notes" placeholder="口味偏好、禮盒文字、過敏原告知、大量訂購說明⋯⋯等"></textarea>
+          </div>
+
+          <p class="form-privacy">提交表單即表示您同意我們使用您的聯絡資料與您確認訂單。您的個人資料僅用於本次訂購用途。</p>
+
+          <button type="submit" class="btn-submit">送出訂購單</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
      CONTACT / FOOTER
 ========================= -->
 <section id="contact">
@@ -1021,6 +1411,62 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  /* ----- Order form: show success if page loaded with ?submitted=true ----- */
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      const form    = document.getElementById('orderForm');
+      const success = document.getElementById('formSuccess');
+      if (form && success) {
+        form.style.display    = 'none';
+        success.style.display = 'block';
+        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  })();
+
+  /* ----- Order form: AJAX submit (no full reload) ----- */
+  const orderForm = document.getElementById('orderForm');
+  if (orderForm) {
+    orderForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Validate: at least one product qty > 0
+      const anySelected = ['qty_madeleine', 'qty_cookie', 'qty_brownie'].some(name => {
+        const el = orderForm.querySelector('[name="' + name + '"]');
+        return el && el.value !== '0';
+      });
+
+      if (!anySelected) {
+        alert('請至少選擇一項商品 😊');
+        return;
+      }
+
+      const submitBtn = orderForm.querySelector('.btn-submit');
+      submitBtn.disabled    = true;
+      submitBtn.textContent = '送出中⋯';
+
+      try {
+        const data = new FormData(orderForm);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(),
+        });
+
+        orderForm.style.display = 'none';
+        const success = document.getElementById('formSuccess');
+        success.style.display = 'block';
+        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = '送出訂購單';
+        alert('送出時發生錯誤，請稍後再試，或透過 Instagram 私訊我們。');
+      }
+    });
+  }
 </script>
 
 </body>
