@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Atelier Baking Lab | 西班牙手作烘焙工作室・台北</title>
   <meta name="description" content="A Atelier Baking Lab 是位於台北的職人手作烘焙工作室。西班牙傳統食譜 × 現代烘焙美學，提供西班牙瑪德蓮、軟餅乾、軟心布朗尼等精品手作甜點。">
+  <script src="locales/en.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -140,6 +141,35 @@
       height: 1.5px;
       background-color: var(--dark);
       transition: all 0.3s;
+    }
+
+    /* ===========================
+       LANG TOGGLE
+    =========================== */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #langToggle {
+      background: none;
+      border: 1px solid var(--taupe);
+      color: var(--dark);
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 5px 11px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      line-height: 1;
+    }
+
+    #langToggle:hover {
+      background-color: var(--dark);
+      border-color: var(--dark);
+      color: var(--cream);
     }
 
     /* ===========================
@@ -466,6 +496,93 @@
     }
 
     /* ===========================
+       MORE ITEMS
+    =========================== */
+    #more-items {
+      background-color: var(--warm-white);
+      padding: 90px 0 110px;
+    }
+
+    .more-items-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .more-items-header .section-divider {
+      margin: 0 auto;
+    }
+
+    .more-items-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .more-item-card {
+      padding: 36px 32px;
+      border: 1px solid var(--line);
+      background-color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .more-item-card:hover {
+      border-color: var(--medium);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(62,53,48,0.09);
+    }
+
+    .more-item-number {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--taupe);
+      font-weight: 700;
+    }
+
+    .more-item-tag {
+      font-size: 0.67rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--medium);
+    }
+
+    .more-item-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    .more-item-divider {
+      width: 28px;
+      height: 1px;
+      background-color: var(--taupe);
+    }
+
+    .more-item-desc {
+      font-size: 0.83rem;
+      color: var(--warm-gray);
+      line-height: 1.85;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 960px) {
+      .more-items-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #more-items { padding: 70px 0 90px; }
+
+      .more-item-card { padding: 28px 24px; }
+    }
+
+    /* ===========================
        ORDERING
     =========================== */
     #ordering {
@@ -480,41 +597,56 @@
       align-items: start;
     }
 
-    .methods-list {
+    .steps-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 0;
     }
 
-    .method-card {
+    .step-item {
       display: flex;
-      gap: 22px;
-      padding: 28px 26px;
-      background-color: var(--cream);
-      border-bottom: 2px solid var(--taupe);
-      transition: border-color 0.25s;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .method-card:hover { border-color: var(--accent); }
+    .step-item:first-child { padding-top: 0; }
+    .step-item:last-child  { border-bottom: none; }
 
-    .method-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--taupe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--medium);
+      margin-top: 2px;
+    }
 
-    .method-title {
+    .step-body {}
+
+    .step-title {
       font-size: 0.97rem;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
 
-    .method-desc {
-      font-size: 0.82rem;
+    .step-desc {
+      font-size: 0.83rem;
       color: var(--warm-gray);
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
-    .method-link {
+    .step-link {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 0.78rem;
       color: var(--accent);
       border-bottom: 1px solid currentColor;
@@ -523,7 +655,7 @@
       transition: color 0.2s;
     }
 
-    .method-link:hover { color: var(--dark); }
+    .step-link:hover { color: var(--dark); }
 
     .ordering-info-box {
       background-color: var(--dark);
@@ -933,25 +1065,28 @@
 <nav id="navbar">
   <div class="nav-logo">A Atelier Baking Lab</div>
   <ul class="nav-links">
-    <li><a href="#about">關於我們</a></li>
-    <li><a href="#menu">精選甜點</a></li>
-    <li><a href="#ordering">訂購方式</a></li>
-    <li><a href="#order-form">線上訂購</a></li>
-    <li><a href="#contact">聯絡</a></li>
+    <li><a href="#about" data-i18n="nav.about">關於我們</a></li>
+    <li><a href="#menu" data-i18n="nav.menu">精選甜點</a></li>
+    <li><a href="#ordering" data-i18n="nav.ordering">訂購方式</a></li>
+    <li><a href="#order-form" data-i18n="nav.form">線上訂購</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">聯絡</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <button id="langToggle" aria-label="Switch language">EN</button>
+    <button class="nav-toggle" id="navToggle" data-i18n-aria="nav.open" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- MOBILE OVERLAY -->
 <div id="mobileMenu">
-  <button class="mobile-close" id="mobileClose" aria-label="關閉選單">✕</button>
-  <a href="#about"      onclick="closeMobile()">關於我們</a>
-  <a href="#menu"      onclick="closeMobile()">精選甜點</a>
-  <a href="#ordering"  onclick="closeMobile()">訂購方式</a>
-  <a href="#order-form" onclick="closeMobile()">線上訂購</a>
-  <a href="#contact"   onclick="closeMobile()">聯絡</a>
+  <button class="mobile-close" id="mobileClose" data-i18n-aria="nav.close" aria-label="關閉選單">✕</button>
+  <a href="#about"      onclick="closeMobile()" data-i18n="nav.about">關於我們</a>
+  <a href="#menu"      onclick="closeMobile()" data-i18n="nav.menu">精選甜點</a>
+  <a href="#ordering"  onclick="closeMobile()" data-i18n="nav.ordering">訂購方式</a>
+  <a href="#order-form" onclick="closeMobile()" data-i18n="nav.form">線上訂購</a>
+  <a href="#contact"   onclick="closeMobile()" data-i18n="nav.contact">聯絡</a>
 </div>
 
 
@@ -962,17 +1097,17 @@
   <div class="hero-bg"></div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">Taipei · Artisan Baking Studio</span>
+    <span class="hero-eyebrow" data-i18n="hero.eyebrow">Taipei · Artisan Baking Studio</span>
     <h1 class="hero-title">A Atelier<br>Baking Lab</h1>
-    <p class="hero-subtitle">西班牙傳統手作 × 現代烘焙美學</p>
-    <p class="hero-tagline">
+    <p class="hero-subtitle" data-i18n="hero.subtitle">西班牙傳統手作 × 現代烘焙美學</p>
+    <p class="hero-tagline" data-i18n-br="hero.tagline">
       遵循歐洲經典工藝，嚴選頂級食材<br>
       職人甜點，獻給每一個值得被珍惜的瞬間
     </p>
-    <a href="#menu" class="btn-ghost">探索甜點</a>
+    <a href="#menu" class="btn-ghost" data-i18n="hero.cta">探索甜點</a>
   </div>
 
-  <div class="hero-scroll-hint">Scroll</div>
+  <div class="hero-scroll-hint" data-i18n="hero.scroll">Scroll</div>
 </section>
 
 
@@ -984,42 +1119,42 @@
     <div class="about-grid">
 
       <div class="about-text">
-        <span class="section-label">Our Story</span>
-        <h2 class="section-title">從西班牙食譜<br>到台北餐桌</h2>
+        <span class="section-label" data-i18n="about.label">Our Story</span>
+        <h2 class="section-title" data-i18n-br="about.title">從西班牙食譜<br>到台北餐桌</h2>
         <div class="section-divider"></div>
-        <p>A Atelier Baking Lab 是一間位於台北的手作烘焙工作室，由對西班牙傳統糕點懷抱熱情的職人創立。</p>
-        <p>我們深信每一口甜點都應該承載著文化的溫度與工藝的誠意。以歐洲經典食譜為根基，融入現代烘焙美學，讓每一件甜點都成為一份可品嚐的藝術。</p>
+        <p data-i18n="about.p1">A Atelier Baking Lab 是一間位於台北的手作烘焙工作室，由對西班牙傳統糕點懷抱熱情的職人創立。</p>
+        <p data-i18n="about.p2">我們深信每一口甜點都應該承載著文化的溫度與工藝的誠意。以歐洲經典食譜為根基，融入現代烘焙美學，讓每一件甜點都成為一份可品嚐的藝術。</p>
 
         <div class="about-pillars">
           <div class="pillar fade-in">
             <div class="pillar-dot"></div>
             <div class="pillar-body">
-              <strong>頂級食材嚴選</strong>
-              <span>遵循歐洲工藝標準，每一款甜點皆以最優質的食材精心製作</span>
+              <strong data-i18n="about.pillar1.title">頂級食材嚴選</strong>
+              <span data-i18n="about.pillar1.desc">遵循歐洲工藝標準，每一款甜點皆以最優質的食材精心製作</span>
             </div>
           </div>
           <div class="pillar fade-in">
             <div class="pillar-dot"></div>
             <div class="pillar-body">
-              <strong>純手工限量製作</strong>
-              <span>拒絕工廠量產，每一件都是職人親手完成的用心之作</span>
+              <strong data-i18n="about.pillar2.title">純手工限量製作</strong>
+              <span data-i18n="about.pillar2.desc">拒絕工廠量產，每一件都是職人親手完成的用心之作</span>
             </div>
           </div>
           <div class="pillar fade-in">
             <div class="pillar-dot"></div>
             <div class="pillar-body">
-              <strong>客製化訂購服務</strong>
-              <span>提供禮盒客製化訂購，以及精品咖啡館選品合作洽詢</span>
+              <strong data-i18n="about.pillar3.title">客製化訂購服務</strong>
+              <span data-i18n="about.pillar3.desc">提供禮盒客製化訂購，以及精品咖啡館選品合作洽詢</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="about-img-wrap fade-in">
-        <img src="images/procduct02.png" alt="A Atelier Baking Lab 手作烘焙" loading="lazy">
+        <img src="images/procduct02.png" alt="A Atelier Baking Lab 手作烘焙" data-i18n-alt="about.label" loading="lazy">
         <div class="about-badge">
           <div class="about-badge-num">100%</div>
-          <div class="about-badge-label">純手工製作</div>
+          <div class="about-badge-label" data-i18n="about.badge">純手工製作</div>
         </div>
       </div>
 
@@ -1034,8 +1169,8 @@
 <section id="menu">
   <div class="container">
     <div class="menu-header">
-      <span class="section-label">Signature Items</span>
-      <h2 class="section-title">職人招牌甜點</h2>
+      <span class="section-label" data-i18n="menu.label">Signature Items</span>
+      <h2 class="section-title" data-i18n="menu.title">職人招牌甜點</h2>
       <div class="section-divider"></div>
     </div>
 
@@ -1043,38 +1178,80 @@
 
       <div class="menu-card fade-in">
         <div class="card-img-wrap">
-          <img src="images/procduct02.png" alt="西班牙瑪德蓮" class="card-img" loading="lazy">
+          <img src="images/procduct02.png" alt="西班牙瑪德蓮" data-i18n-alt="menu.item1.alt" class="card-img" loading="lazy">
         </div>
         <div class="card-body">
-          <span class="card-tag">Spanish Madeleine</span>
-          <h3 class="card-title">西班牙瑪德蓮</h3>
-          <p class="card-desc">以西班牙傳統食譜為本，外皮微酥、內裡鬆軟綿密，香氣馥郁。每一口都是香濃溫暖的幸福滋味。</p>
-          <span class="card-price">NT$ 100 起</span>
+          <span class="card-tag" data-i18n="menu.item1.tag">Spanish Madeleine</span>
+          <h3 class="card-title" data-i18n="menu.item1.title">西班牙瑪德蓮</h3>
+          <p class="card-desc" data-i18n="menu.item1.desc">以西班牙傳統食譜為本，外皮微酥、內裡鬆軟綿密，香氣馥郁。每一口都是香濃溫暖的幸福滋味。</p>
+          <span class="card-price" data-i18n="menu.item1.price">原價 NT$ 60</span>
         </div>
       </div>
 
       <div class="menu-card fade-in">
         <div class="card-img-wrap">
-          <img src="images/procduct01.png" alt="手工軟餅乾" class="card-img" loading="lazy">
+          <img src="images/procduct01.png" alt="手工軟餅乾" data-i18n-alt="menu.item2.alt" class="card-img" loading="lazy">
         </div>
         <div class="card-body">
-          <span class="card-tag">Soft Cookie</span>
-          <h3 class="card-title">手工軟餅乾</h3>
-          <p class="card-desc">職人手感整型，外緣微酥、中心柔軟，嚴選頂級巧克力豆，入口即化的層次讓人難以抗拒。</p>
-          <span class="card-price">NT$ 120 起</span>
+          <span class="card-tag" data-i18n="menu.item2.tag">Soft Cookie</span>
+          <h3 class="card-title" data-i18n="menu.item2.title">手工軟餅乾</h3>
+          <p class="card-desc" data-i18n="menu.item2.desc">職人手感整型，外緣微酥、中心柔軟，嚴選頂級巧克力豆，入口即化的層次讓人難以抗拒。</p>
+          <span class="card-price" data-i18n="menu.item2.price">原價 NT$ 120</span>
         </div>
       </div>
 
       <div class="menu-card fade-in">
         <div class="card-img-wrap">
-          <img src="images/procduct03.png" alt="軟心布朗尼" class="card-img" loading="lazy">
+          <img src="images/procduct03.png" alt="軟心布朗尼" data-i18n-alt="menu.item3.alt" class="card-img" loading="lazy">
         </div>
         <div class="card-body">
-          <span class="card-tag">Fudge Brownie</span>
-          <h3 class="card-title">軟心布朗尼</h3>
-          <p class="card-desc">濃郁可可香氣，外層薄脆、內裡絲滑流心。以歐洲進口頂級可可製成，巧克力愛好者的終極饗宴。</p>
-          <span class="card-price">NT$ 150 起</span>
+          <span class="card-tag" data-i18n="menu.item3.tag">Fudge Brownie</span>
+          <h3 class="card-title" data-i18n="menu.item3.title">軟心布朗尼</h3>
+          <p class="card-desc" data-i18n="menu.item3.desc">濃郁可可香氣，外層薄脆、內裡絲滑流心。以歐洲進口頂級可可製成，巧克力愛好者的終極饗宴。</p>
+          <span class="card-price" data-i18n="menu.item3.price">原價 NT$ 100</span>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================
+     MORE ITEMS
+========================= -->
+<section id="more-items">
+  <div class="container">
+    <div class="more-items-header">
+      <span class="section-label" data-i18n="more.label">Also Available</span>
+      <h2 class="section-title" data-i18n="more.title">其他商品</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="more-items-grid">
+
+      <div class="more-item-card fade-in">
+        <span class="more-item-number">01</span>
+        <span class="more-item-tag" data-i18n="more.item1.tag">Pound Cake</span>
+        <h3 class="more-item-title" data-i18n="more.item1.title">磅蛋糕</h3>
+        <div class="more-item-divider"></div>
+        <p class="more-item-desc" data-i18n="more.item1.desc">以奶油、砂糖、雞蛋與麵粉精心製成，口感紮實濕潤，奶香濃郁。切片獨享或作為禮盒伴手禮皆宜。</p>
+      </div>
+
+      <div class="more-item-card fade-in">
+        <span class="more-item-number">02</span>
+        <span class="more-item-tag" data-i18n="more.item2.tag">Grissini</span>
+        <h3 class="more-item-title" data-i18n="more.item2.title">歐式麵包棒</h3>
+        <div class="more-item-divider"></div>
+        <p class="more-item-desc" data-i18n="more.item2.desc">源自歐洲的經典薄脆麵包棒，以橄欖油與天然香料烘烤而成，酥脆輕盈。適合搭配起士、沾醬或單獨品嚐。</p>
+      </div>
+
+      <div class="more-item-card fade-in">
+        <span class="more-item-number">03</span>
+        <span class="more-item-tag" data-i18n="more.item3.tag">Rich Cheesecake</span>
+        <h3 class="more-item-title" data-i18n="more.item3.title">濃郁起士蛋糕</h3>
+        <div class="more-item-divider"></div>
+        <p class="more-item-desc" data-i18n="more.item3.desc">嚴選頂級奶油起士，質地綿密滑順，奶香與微酸完美融合。餅乾底層帶來層次感，是起士愛好者的絕對首選。</p>
       </div>
 
     </div>
@@ -1090,36 +1267,42 @@
     <div class="ordering-grid">
 
       <div>
-        <span class="section-label">How to Order</span>
-        <h2 class="section-title">如何訂購</h2>
+        <span class="section-label" data-i18n="ordering.label">How to Order</span>
+        <h2 class="section-title" data-i18n="ordering.title">如何訂購</h2>
         <div class="section-divider"></div>
 
-        <div class="methods-list">
+        <div class="steps-list">
 
-          <div class="method-card fade-in">
-            <span class="method-icon">📩</span>
-            <div>
-              <div class="method-title">Instagram 私訊訂購</div>
-              <p class="method-desc">歡迎透過 Instagram 私訊洽詢菜單、客製化需求及訂購細節，我們將盡快回覆您的訊息。</p>
-              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">前往 Instagram 私訊 →</a>
+          <div class="step-item fade-in">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <div class="step-title" data-i18n="ordering.step1.title">瀏覽商品，選定品項</div>
+              <p class="step-desc" data-i18n="ordering.step1.desc">瀏覽上方的甜點清單，確認想要的品項與數量。可選擇單品或搭配禮盒組合。</p>
             </div>
           </div>
 
-          <div class="method-card fade-in">
-            <span class="method-icon">🏪</span>
-            <div>
-              <div class="method-title">市集現場購買</div>
-              <p class="method-desc">不定期於台北各地市集設攤，歡迎蒞臨現場品嚐，感受職人手作甜點的溫度與用心。</p>
-              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">追蹤 IG 掌握市集資訊 →</a>
+          <div class="step-item fade-in">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <div class="step-title" data-i18n="ordering.step2.title">填寫下方訂購單</div>
+              <p class="step-desc" data-i18n="ordering.step2.desc">在頁面下方填寫姓名、聯絡方式、品項數量及取貨日期，提交後我們會盡快與您確認。</p>
+              <a href="#order-form" class="step-link" data-i18n="ordering.step2.link">前往訂購單 →</a>
             </div>
           </div>
 
-          <div class="method-card fade-in">
-            <span class="method-icon">☕️</span>
-            <div>
-              <div class="method-title">咖啡館選品合作</div>
-              <p class="method-desc">歡迎精品咖啡館業者洽詢選品合作，提供穩定優質的職人甜點供應服務。</p>
-              <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="method-link">洽詢供應合作 →</a>
+          <div class="step-item fade-in">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <div class="step-title" data-i18n="ordering.step3.title">確認訂單與付款</div>
+              <p class="step-desc" data-i18n="ordering.step3.desc">收到表單後，我們會透過 Instagram 或電話與您確認訂單細節，並提供付款資訊。</p>
+            </div>
+          </div>
+
+          <div class="step-item fade-in">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <div class="step-title" data-i18n="ordering.step4.title">新鮮出爐，等待收貨</div>
+              <p class="step-desc" data-i18n="ordering.step4.desc">確認訂單後 3–5 個工作天內完成製作，可選擇宅配到府或市集現場取貨。</p>
             </div>
           </div>
 
@@ -1127,27 +1310,27 @@
       </div>
 
       <div class="ordering-info-box fade-in">
-        <h2 class="section-title">訂購須知</h2>
+        <h2 class="section-title" data-i18n="ordering.info.title">訂購須知</h2>
         <div class="section-divider"></div>
         <ul class="info-items">
           <li>
             <span class="ico">📍</span>
-            <span>線上工作室，無實體門市<br>接受訂購後宅配或市集取貨</span>
+            <span data-i18n-html="ordering.info.li1">線上工作室，無實體門市<br>接受訂購後宅配或市集取貨</span>
           </li>
           <li>
             <span class="ico">⏱</span>
-            <span>請提前 3–5 天預約訂購<br>確保您能收到最新鮮的手作甜點</span>
+            <span data-i18n-html="ordering.info.li2">請提前 3–5 天預約訂購<br>確保您能收到最新鮮的手作甜點</span>
           </li>
           <li>
             <span class="ico">🎁</span>
-            <span>提供客製化口味及禮盒包裝<br>婚禮、活動、企業送禮皆可洽詢</span>
+            <span data-i18n-html="ordering.info.li3">提供客製化口味及禮盒包裝<br>婚禮、活動、企業送禮皆可洽詢</span>
           </li>
           <li>
             <span class="ico">💳</span>
-            <span>價位帶 NT$ 100–200<br>依商品種類及數量而定</span>
+            <span data-i18n-html="ordering.info.li4">價位帶 NT$ 100–200<br>依商品種類及數量而定</span>
           </li>
         </ul>
-        <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="btn-outline-light">立即私訊詢問</a>
+        <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="btn-outline-light" data-i18n="ordering.info.cta">立即私訊詢問</a>
       </div>
 
     </div>
@@ -1164,28 +1347,28 @@
 
       <!-- Left: intro -->
       <div class="order-form-intro fade-in">
-        <span class="section-label">Online Order</span>
-        <h2 class="section-title">線上填寫<br>訂購單</h2>
+        <span class="section-label" data-i18n="form.label">Online Order</span>
+        <h2 class="section-title" data-i18n-br="form.title">線上填寫<br>訂購單</h2>
         <div class="section-divider"></div>
-        <p>填寫以下表單後，我們將於 1–2 個工作天內透過 Instagram 或 Email 與您確認訂單細節及付款方式。</p>
-        <p>如有客製化需求（口味、包裝、禮盒文字），請在備註欄詳細說明。</p>
+        <p data-i18n="form.p1">填寫以下表單後，我們將於 1–2 個工作天內透過 Instagram 或 Email 與您確認訂單細節及付款方式。</p>
+        <p data-i18n="form.p2">如有客製化需求（口味、包裝、禮盒文字），請在備註欄詳細說明。</p>
 
         <div class="order-notes">
           <div class="order-note">
             <span class="ico">⏱</span>
-            <span>請提前 <strong>3–5 天</strong> 預約，以確保最新鮮的品質</span>
+            <span data-i18n-html="form.note1">請提前 <strong>3–5 天</strong> 預約，以確保最新鮮的品質</span>
           </div>
           <div class="order-note">
             <span class="ico">🚚</span>
-            <span>提供宅配到府或市集現場取貨</span>
+            <span data-i18n="form.note2">提供宅配到府或市集現場取貨</span>
           </div>
           <div class="order-note">
             <span class="ico">💳</span>
-            <span>付款方式將於確認訂單時說明</span>
+            <span data-i18n="form.note3">付款方式將於確認訂單時說明</span>
           </div>
           <div class="order-note">
             <span class="ico">🎁</span>
-            <span>婚禮、企業禮盒等大量訂單歡迎備註洽詢</span>
+            <span data-i18n="form.note4">婚禮、企業禮盒等大量訂單歡迎備註洽詢</span>
           </div>
         </div>
       </div>
@@ -1195,8 +1378,8 @@
 
         <!-- Netlify success message (shown on redirect back) -->
         <div id="formSuccess">
-          <strong>感謝您的訂購！🎉</strong>
-          我們已收到您的訂購單，將於 1–2 個工作天內透過 Instagram 或 Email 與您確認細節。
+          <strong data-i18n="form.success.title">感謝您的訂購！🎉</strong>
+          <span data-i18n="form.success.body">我們已收到您的訂購單，將於 1–2 個工作天內透過 Instagram 或 Email 與您確認細節。</span>
         </div>
 
         <!-- Netlify form -->
@@ -1215,92 +1398,101 @@
           <!-- Contact info -->
           <div class="form-row">
             <div class="form-group">
-              <label for="name">姓名 *</label>
-              <input type="text" id="name" name="name" placeholder="您的姓名" required>
+              <label for="name" data-i18n="form.label.name">姓名 *</label>
+              <input type="text" id="name" name="name" data-i18n-placeholder="form.ph.name" placeholder="您的姓名" required>
             </div>
             <div class="form-group">
-              <label for="phone">聯絡電話</label>
-              <input type="tel" id="phone" name="phone" placeholder="0912-345-678">
+              <label for="phone" data-i18n="form.label.phone">聯絡電話</label>
+              <input type="tel" id="phone" name="phone" data-i18n-placeholder="form.ph.phone" placeholder="0912-345-678">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Email *</label>
+            <label for="email" data-i18n="form.label.email">Email *</label>
             <input type="email" id="email" name="email" placeholder="your@email.com" required>
           </div>
 
           <div class="form-group">
-            <label for="instagram">Instagram 帳號</label>
-            <input type="text" id="instagram" name="instagram" placeholder="@your_account（方便私訊聯繫）">
+            <label for="instagram" data-i18n="form.label.instagram">Instagram 帳號</label>
+            <input type="text" id="instagram" name="instagram" data-i18n-placeholder="form.ph.instagram" placeholder="@your_account（方便私訊聯繫）">
           </div>
 
           <!-- Delivery date -->
           <div class="form-row">
             <div class="form-group">
-              <label for="pickup_date">希望取貨 / 到貨日期 *</label>
-              <input type="date" id="pickup_date" name="pickup_date" required>
+              <label for="pickup_date" data-i18n="form.label.date">希望取貨 / 到貨日期 *</label>
+              <input type="date" id="pickup_date" name="pickup_date" lang="zh-TW" required>
             </div>
             <div class="form-group">
-              <label for="delivery_method">取貨方式 *</label>
+              <label for="delivery_method" data-i18n="form.label.delivery">取貨方式 *</label>
               <select id="delivery_method" name="delivery_method" required>
-                <option value="" disabled selected>請選擇</option>
-                <option value="宅配到府">宅配到府</option>
-                <option value="市集現場取貨">市集現場取貨</option>
+                <option value="" disabled selected data-i18n="form.delivery.select">請選擇</option>
+                <option value="宅配到府" data-i18n="form.delivery.home">宅配到府</option>
+                <option value="市集現場取貨" data-i18n="form.delivery.market">市集現場取貨</option>
               </select>
             </div>
           </div>
 
           <!-- Product selection -->
           <div>
-            <div class="form-products-label">選擇商品 *（至少選一樣）</div>
+            <div class="form-products-label" data-i18n="form.products.label">選擇商品 *（至少選一樣）</div>
             <div class="form-products">
 
               <div class="product-row">
                 <div>
-                  <div class="product-row-name">西班牙瑪德蓮</div>
-                  <div class="product-row-sub">Spanish Madeleine</div>
+                  <div class="product-row-name" data-i18n="prod.madeleine.name">西班牙瑪德蓮</div>
+                  <div class="product-row-sub" data-i18n="prod.madeleine.sub">Spanish Madeleine</div>
                 </div>
-                <select name="qty_madeleine" aria-label="西班牙瑪德蓮數量">
-                  <option value="0">不需要</option>
-                  <option value="1">1 盒</option>
-                  <option value="2">2 盒</option>
-                  <option value="3">3 盒</option>
-                  <option value="4">4 盒</option>
-                  <option value="5">5 盒以上</option>
+                <select name="qty_madeleine" data-i18n-aria="prod.madeleine.name" aria-label="西班牙瑪德蓮數量">
+                  <option value="0" data-i18n="form.qty.none">不需要</option>
+                  <option value="1" data-i18n="form.qty.1">1 盒</option>
+                  <option value="2" data-i18n="form.qty.2">2 盒</option>
+                  <option value="3" data-i18n="form.qty.3">3 盒</option>
+                  <option value="4" data-i18n="form.qty.4">4 盒</option>
+                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
                 </select>
-                <div class="product-row-price">NT$ 100 起</div>
+                <div class="product-row-price" data-i18n="prod.madeleine.price">NT$ 60/顆 起</div>
               </div>
 
               <div class="product-row">
                 <div>
-                  <div class="product-row-name">手工軟餅乾</div>
-                  <div class="product-row-sub">Soft Cookie</div>
+                  <div class="product-row-name" data-i18n="prod.cookie.name">手工軟餅乾</div>
+                  <div class="product-row-sub" data-i18n="prod.cookie.sub">Soft Cookie</div>
                 </div>
-                <select name="qty_cookie" aria-label="手工軟餅乾數量">
-                  <option value="0">不需要</option>
-                  <option value="1">1 盒</option>
-                  <option value="2">2 盒</option>
-                  <option value="3">3 盒</option>
-                  <option value="4">4 盒</option>
-                  <option value="5">5 盒以上</option>
+                <select name="qty_cookie" data-i18n-aria="prod.cookie.name" aria-label="手工軟餅乾數量">
+                  <option value="0" data-i18n="form.qty.none">不需要</option>
+                  <option value="1" data-i18n="form.qty.1">1 盒</option>
+                  <option value="2" data-i18n="form.qty.2">2 盒</option>
+                  <option value="3" data-i18n="form.qty.3">3 盒</option>
+                  <option value="4" data-i18n="form.qty.4">4 盒</option>
+                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
                 </select>
-                <div class="product-row-price">NT$ 120 起</div>
+                <div class="product-row-price" data-i18n="prod.cookie.price">NT$ 120/顆 起</div>
               </div>
 
               <div class="product-row">
                 <div>
-                  <div class="product-row-name">軟心布朗尼</div>
-                  <div class="product-row-sub">Fudge Brownie</div>
+                  <div class="product-row-name" data-i18n="prod.brownie.name">軟心布朗尼</div>
+                  <div class="product-row-sub" data-i18n="prod.brownie.sub">Fudge Brownie</div>
                 </div>
-                <select name="qty_brownie" aria-label="軟心布朗尼數量">
-                  <option value="0">不需要</option>
-                  <option value="1">1 盒</option>
-                  <option value="2">2 盒</option>
-                  <option value="3">3 盒</option>
-                  <option value="4">4 盒</option>
-                  <option value="5">5 盒以上</option>
+                <select name="qty_brownie" data-i18n-aria="prod.brownie.name" aria-label="軟心布朗尼數量">
+                  <option value="0" data-i18n="form.qty.none">不需要</option>
+                  <option value="1" data-i18n="form.qty.1">1 盒</option>
+                  <option value="2" data-i18n="form.qty.2">2 盒</option>
+                  <option value="3" data-i18n="form.qty.3">3 盒</option>
+                  <option value="4" data-i18n="form.qty.4">4 盒</option>
+                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
                 </select>
-                <div class="product-row-price">NT$ 150 起</div>
+                <div class="product-row-price" data-i18n="prod.brownie.price">NT$ 100/顆 起</div>
+              </div>
+
+              <div class="product-row">
+                <div>
+                  <div class="product-row-name" data-i18n="prod.other.name">其他商品</div>
+                  <div class="product-row-sub" data-i18n="prod.other.sub">磅蛋糕 / 歐式麵包棒 / 起士蛋糕 等</div>
+                </div>
+                <input type="text" name="qty_other" data-i18n-placeholder="prod.other.ph" placeholder="請填寫品項與數量" aria-label="其他商品" style="font-family:'Zen Maru Gothic',sans-serif;font-size:0.83rem;color:var(--text);background-color:var(--cream);border:1px solid var(--line);padding:8px 12px;outline:none;transition:border-color 0.25s;border-radius:0;width:160px;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--line)'">
+                <div class="product-row-price" data-i18n="prod.other.price">依品項定價</div>
               </div>
 
             </div>
@@ -1308,23 +1500,23 @@
 
           <!-- Gift / customization -->
           <div class="form-group">
-            <label for="gift_option">包裝需求</label>
+            <label for="gift_option" data-i18n="form.label.gift">包裝需求</label>
             <select id="gift_option" name="gift_option">
-              <option value="一般包裝">一般包裝</option>
-              <option value="禮盒包裝">禮盒包裝（加購）</option>
-              <option value="客製化禮盒">客製化禮盒（婚禮 / 企業禮品）</option>
+              <option value="一般包裝" data-i18n="form.gift.standard">一般包裝</option>
+              <option value="禮盒包裝" data-i18n="form.gift.box">禮盒包裝（加購）</option>
+              <option value="客製化禮盒" data-i18n="form.gift.custom">客製化禮盒（婚禮 / 企業禮品）</option>
             </select>
           </div>
 
           <!-- Notes -->
           <div class="form-group">
-            <label for="notes">備註 / 客製化說明</label>
-            <textarea id="notes" name="notes" placeholder="口味偏好、禮盒文字、過敏原告知、大量訂購說明⋯⋯等"></textarea>
+            <label for="notes" data-i18n="form.label.notes">備註 / 客製化說明</label>
+            <textarea id="notes" name="notes" placeholder="口味偏好、禮盒文字、過敏原告知、大量訂購說明⋯⋯等" data-i18n-placeholder="form.ph.notes"></textarea>
           </div>
 
-          <p class="form-privacy">提交表單即表示您同意我們使用您的聯絡資料與您確認訂單。您的個人資料僅用於本次訂購用途。</p>
+          <p class="form-privacy" data-i18n="form.privacy">提交表單即表示您同意我們使用您的聯絡資料與您確認訂單。您的個人資料僅用於本次訂購用途。</p>
 
-          <button type="submit" class="btn-submit">送出訂購單</button>
+          <button type="submit" class="btn-submit" data-i18n="form.submit">送出訂購單並取得報價</button>
         </form>
 
       </div>
@@ -1339,7 +1531,7 @@
 <section id="contact">
   <div class="contact-inner">
     <div class="contact-logo">A Atelier Baking Lab</div>
-    <p class="contact-sub">TAIPEI · ARTISAN BAKING STUDIO</p>
+    <p class="contact-sub" data-i18n="contact.sub">TAIPEI · ARTISAN BAKING STUDIO</p>
 
     <div class="social-row">
       <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="social-btn">
@@ -1353,15 +1545,15 @@
     </div>
 
     <p class="footer-copy">
-      © 2025 A Atelier Baking Lab<br>
-      西班牙傳統手作 × 現代烘焙美學 · Taipei, Taiwan
+      <span data-i18n="footer.copy1">© 2025 A Atelier Baking Lab</span><br>
+      <span data-i18n="footer.copy2">西班牙傳統手作 × 現代烘焙美學 · Taipei, Taiwan</span>
     </p>
   </div>
 </section>
 
 
 <!-- SCROLL TO TOP -->
-<button id="scrollTop" aria-label="回到頂部">↑</button>
+<button id="scrollTop" data-i18n-aria="scrolltop.label" aria-label="回到頂部">↑</button>
 
 
 <!-- ========================
@@ -1439,13 +1631,13 @@
       });
 
       if (!anySelected) {
-        alert('請至少選擇一項商品 😊');
+        alert(window.i18n ? window.i18n.t('form.alert.select') : '請至少選擇一項商品 😊');
         return;
       }
 
       const submitBtn = orderForm.querySelector('.btn-submit');
       submitBtn.disabled    = true;
-      submitBtn.textContent = '送出中⋯';
+      submitBtn.textContent = window.i18n ? window.i18n.t('form.alert.sending') : '送出中⋯';
 
       try {
         const data = new FormData(orderForm);
@@ -1463,11 +1655,12 @@
       } catch (err) {
         submitBtn.disabled    = false;
         submitBtn.textContent = '送出訂購單';
-        alert('送出時發生錯誤，請稍後再試，或透過 Instagram 私訊我們。');
+        alert(window.i18n ? window.i18n.t('form.alert.error') : '送出時發生錯誤，請稍後再試，或透過 Instagram 私訊我們。');
       }
     });
   }
 </script>
 
+<script src="locales/i18n.js"></script>
 </body>
 </html>
