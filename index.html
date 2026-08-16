@@ -803,12 +803,28 @@
 
     .product-row {
       display: grid;
-      grid-template-columns: 1fr auto auto;
+      grid-template-columns: 1fr auto auto auto;
       gap: 12px;
       align-items: center;
       background-color: var(--warm-white);
       border: 1px solid var(--line);
       padding: 14px 16px;
+    }
+
+    .product-qty-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-price-note {
+      font-size: 0.77rem;
+      color: var(--medium);
+      line-height: 1.6;
+      margin-top: 8px;
+      padding: 10px 14px;
+      background-color: var(--cream);
+      border-left: 2px solid var(--taupe);
     }
 
     .product-row-name {
@@ -908,11 +924,15 @@
       .form-row { grid-template-columns: 1fr; }
 
       .product-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
-      .product-row-price { text-align: left; }
+      .product-row > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .product-row-price { text-align: left; grid-column: 1 / -1; }
     }
 
     /* ===========================
@@ -1356,6 +1376,10 @@
 
         <div class="order-notes">
           <div class="order-note">
+            <span class="ico">💰</span>
+            <span data-i18n-html="form.note.price">標示價格均為<strong>單顆</strong>售價；如需整盒購買，請選擇「盒」，我們將另行報價</span>
+          </div>
+          <div class="order-note">
             <span class="ico">⏱</span>
             <span data-i18n-html="form.note1">請提前 <strong>3–5 天</strong> 預約，以確保最新鮮的品質</span>
           </div>
@@ -1444,15 +1468,21 @@
                   <div class="product-row-name" data-i18n="prod.madeleine.name">西班牙瑪德蓮</div>
                   <div class="product-row-sub" data-i18n="prod.madeleine.sub">Spanish Madeleine</div>
                 </div>
-                <select name="qty_madeleine" data-i18n-aria="prod.madeleine.name" aria-label="西班牙瑪德蓮數量">
-                  <option value="0" data-i18n="form.qty.none">不需要</option>
-                  <option value="1" data-i18n="form.qty.1">1 盒</option>
-                  <option value="2" data-i18n="form.qty.2">2 盒</option>
-                  <option value="3" data-i18n="form.qty.3">3 盒</option>
-                  <option value="4" data-i18n="form.qty.4">4 盒</option>
-                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
-                </select>
-                <div class="product-row-price" data-i18n="prod.madeleine.price">NT$ 60/顆 起</div>
+                <div class="product-qty-group">
+                  <select name="qty_madeleine" data-i18n-aria="prod.madeleine.name" aria-label="西班牙瑪德蓮數量">
+                    <option value="0" data-i18n="form.qty.none">不需要</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                  </select>
+                  <select name="unit_madeleine" aria-label="西班牙瑪德蓮單位">
+                    <option value="顆" data-i18n="form.unit.piece">顆</option>
+                    <option value="盒" data-i18n="form.unit.box">盒</option>
+                  </select>
+                </div>
+                <div class="product-row-price" data-i18n="prod.madeleine.price">NT$ 60／顆</div>
               </div>
 
               <div class="product-row">
@@ -1460,15 +1490,21 @@
                   <div class="product-row-name" data-i18n="prod.cookie.name">手工軟餅乾</div>
                   <div class="product-row-sub" data-i18n="prod.cookie.sub">Soft Cookie</div>
                 </div>
-                <select name="qty_cookie" data-i18n-aria="prod.cookie.name" aria-label="手工軟餅乾數量">
-                  <option value="0" data-i18n="form.qty.none">不需要</option>
-                  <option value="1" data-i18n="form.qty.1">1 盒</option>
-                  <option value="2" data-i18n="form.qty.2">2 盒</option>
-                  <option value="3" data-i18n="form.qty.3">3 盒</option>
-                  <option value="4" data-i18n="form.qty.4">4 盒</option>
-                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
-                </select>
-                <div class="product-row-price" data-i18n="prod.cookie.price">NT$ 120/顆 起</div>
+                <div class="product-qty-group">
+                  <select name="qty_cookie" data-i18n-aria="prod.cookie.name" aria-label="手工軟餅乾數量">
+                    <option value="0" data-i18n="form.qty.none">不需要</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                  </select>
+                  <select name="unit_cookie" aria-label="手工軟餅乾單位">
+                    <option value="顆" data-i18n="form.unit.piece">顆</option>
+                    <option value="盒" data-i18n="form.unit.box">盒</option>
+                  </select>
+                </div>
+                <div class="product-row-price" data-i18n="prod.cookie.price">NT$ 120／顆</div>
               </div>
 
               <div class="product-row">
@@ -1476,15 +1512,21 @@
                   <div class="product-row-name" data-i18n="prod.brownie.name">軟心布朗尼</div>
                   <div class="product-row-sub" data-i18n="prod.brownie.sub">Fudge Brownie</div>
                 </div>
-                <select name="qty_brownie" data-i18n-aria="prod.brownie.name" aria-label="軟心布朗尼數量">
-                  <option value="0" data-i18n="form.qty.none">不需要</option>
-                  <option value="1" data-i18n="form.qty.1">1 盒</option>
-                  <option value="2" data-i18n="form.qty.2">2 盒</option>
-                  <option value="3" data-i18n="form.qty.3">3 盒</option>
-                  <option value="4" data-i18n="form.qty.4">4 盒</option>
-                  <option value="5" data-i18n="form.qty.5plus">5 盒以上</option>
-                </select>
-                <div class="product-row-price" data-i18n="prod.brownie.price">NT$ 100/顆 起</div>
+                <div class="product-qty-group">
+                  <select name="qty_brownie" data-i18n-aria="prod.brownie.name" aria-label="軟心布朗尼數量">
+                    <option value="0" data-i18n="form.qty.none">不需要</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                  </select>
+                  <select name="unit_brownie" aria-label="軟心布朗尼單位">
+                    <option value="顆" data-i18n="form.unit.piece">顆</option>
+                    <option value="盒" data-i18n="form.unit.box">盒</option>
+                  </select>
+                </div>
+                <div class="product-row-price" data-i18n="prod.brownie.price">NT$ 100／顆</div>
               </div>
 
               <div class="product-row">
