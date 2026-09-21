@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
   <title>A Atelier Baking Lab | 西班牙手作烘焙工作室・台北</title>
-  <meta name="description" content="A Atelier Baking Lab 是位於台北的職人手作烘焙工作室。西班牙傳統食譜 × 現代烘焙美學，提供西班牙瑪德蓮、軟餅乾、軟心布朗尼等精品手作甜點。">
+  <meta name="description" content="A Atelier Baking Lab 是位於台北的職人手作烘焙工作室。西班牙傳統食譜 × 現代烘焙美學，提供西班牙瑪德蓮、軟餅乾、軟心布朗尼、迷你一口捲等精品手作甜點。">
   <script src="locales/zh.js"></script>
   <script src="locales/en.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1808,6 +1808,28 @@
 
               <div class="product-row">
                 <div>
+                  <div class="product-row-name" data-i18n="prod.bites.name">迷你一口捲</div>
+                  <div class="product-row-sub" data-i18n="prod.bites.sub">Mini Bite Rolls</div>
+                </div>
+                <div class="product-qty-group">
+                  <select name="qty_bites" data-i18n-aria="prod.bites.name" aria-label="迷你一口捲數量">
+                    <option value="0" data-i18n="form.qty.none">不需要</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                  </select>
+                  <select name="unit_bites" aria-label="迷你一口捲單位">
+                    <option value="顆" data-i18n="form.unit.piece">顆</option>
+                    <option value="盒" data-i18n="form.unit.box" hidden disabled>盒</option><!-- 尚未開放：準備好後移除 hidden disabled -->
+                  </select>
+                </div>
+                <div class="product-row-price" data-i18n="prod.bites.price">NT$ 60／顆</div>
+              </div>
+
+              <div class="product-row">
+                <div>
                   <div class="product-row-name" data-i18n="prod.other.name">其他商品</div>
                   <div class="product-row-sub" data-i18n="prod.other.sub">磅蛋糕 / 歐式麵包棒 / 起士蛋糕 等</div>
                 </div>
@@ -1945,7 +1967,7 @@
       e.preventDefault();
 
       // Validate: at least one product qty > 0
-      const anySelected = ['qty_madeleine', 'qty_cookie', 'qty_brownie'].some(name => {
+      const anySelected = ['qty_madeleine', 'qty_cookie', 'qty_brownie', 'qty_bites'].some(name => {
         const el = orderForm.querySelector('[name="' + name + '"]');
         return el && el.value !== '0';
       });

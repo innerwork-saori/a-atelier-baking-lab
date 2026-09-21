@@ -60,7 +60,7 @@ window.LOCALES.en = {
   "menu.item4.tag":      "迷你一口捲",
   "menu.item4.title":    "Mini Bite Rolls",
   "menu.item4.desc":     "Bite-sized hand-rolled pastries — caramelised and crisp at the edges, soft and moist in the centre. Mix any of the seven flavors in one order.",
-  "menu.item4.price":    "Price on request",
+  "menu.item4.price":    "NT$ 60",
   "menu.item4.alt":      "Mini Bite Rolls",
 
   /* ---- Flavors ---- */
@@ -162,6 +162,9 @@ window.LOCALES.en = {
   "prod.brownie.name":   "Fudge Brownie",
   "prod.brownie.sub":    "Fudge Brownie",
   "prod.brownie.price":  "NT$ 100 / pc.",
+  "prod.bites.name":     "Mini Bite Rolls",
+  "prod.bites.sub":      "迷你一口捲",
+  "prod.bites.price":    "NT$ 60 / pc.",
   "prod.other.name":     "Other Items",
   "prod.other.sub":      "Pound Cake / Breadsticks / Cheesecake, etc.",
   "prod.other.ph":       "Please specify items and quantities",

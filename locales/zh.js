@@ -60,7 +60,7 @@ window.LOCALES.zh = {
   "menu.item4.tag":   "Bites",
   "menu.item4.title": "迷你一口捲",
   "menu.item4.desc":  "一口大小的手工捲，外圈烤得微焦香脆，內裡柔軟濕潤。七款口味可自由搭配，一次嚐到多種風味。",
-  "menu.item4.price": "價格請洽詢",
+  "menu.item4.price": "原價 NT$ 60",
   "menu.item4.alt":   "迷你一口捲",
 
   /* ---- Flavors ---- */
@@ -162,6 +162,9 @@ window.LOCALES.zh = {
   "prod.brownie.name":   "軟心布朗尼",
   "prod.brownie.sub":    "Fudge Brownie",
   "prod.brownie.price":  "NT$ 100／顆",
+  "prod.bites.name":     "迷你一口捲",
+  "prod.bites.sub":      "Mini Bite Rolls",
+  "prod.bites.price":    "NT$ 60／顆",
   "prod.other.name":     "其他商品",
   "prod.other.sub":      "磅蛋糕 / 歐式麵包棒 / 起士蛋糕 等",
   "prod.other.ph":       "請填寫品項與數量",
