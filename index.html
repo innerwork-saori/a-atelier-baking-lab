@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
   <title>A Atelier Baking Lab | 西班牙手作烘焙工作室・台北</title>
   <meta name="description" content="A Atelier Baking Lab 是位於台北的職人手作烘焙工作室。西班牙傳統食譜 × 現代烘焙美學，提供西班牙瑪德蓮、軟餅乾、軟心布朗尼等精品手作甜點。">
   <script src="locales/zh.js"></script>
@@ -102,6 +104,9 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -109,6 +114,16 @@
       color: var(--dark);
       white-space: nowrap;
     }
+
+    .nav-logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: width 0.35s ease, height 0.35s ease;
+    }
+
+    #navbar.scrolled .nav-logo img { width: 34px; height: 34px; }
 
     .nav-links {
       display: flex;
@@ -1084,7 +1099,7 @@
      NAVIGATION
 ========================= -->
 <nav id="navbar">
-  <div class="nav-logo">A Atelier Baking Lab</div>
+  <div class="nav-logo"><img src="images/logo.png" alt="A Atelier Baking Lab logo"><span>A Atelier Baking Lab</span></div>
   <ul class="nav-links">
     <li><a href="#about" data-i18n="nav.about">關於我們</a></li>
     <li><a href="#menu" data-i18n="nav.menu">精選甜點</a></li>
