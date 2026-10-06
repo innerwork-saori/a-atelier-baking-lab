@@ -33,6 +33,7 @@
       --text:       #3A302A;
       --accent:     #97847A;
       --line:       #DDD4C9;
+      --promo:      #5E3F52; /* 蘭姆葡萄圓點的深梅紫，供優惠價與市集限定共用 */
     }
 
     html { scroll-behavior: smooth; }
@@ -532,6 +533,35 @@
       white-space: nowrap;
     }
 
+    /* ---- price on promotion: struck original + current price ---- */
+    .menu-item-price.on-sale {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+      font-weight: 400;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .price-flag {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: var(--promo);
+    }
+
+    .price-rows { font-size: 0.82rem; line-height: 1.75; }
+
+    .price-rows s {
+      color: var(--warm-gray);
+      margin-right: 3px;
+    }
+
+    .price-rows strong {
+      font-size: 0.95rem;
+      color: var(--promo);
+    }
+
     .menu-item-desc {
       margin-top: 16px;
       max-width: 36em;
@@ -608,6 +638,23 @@
       color: var(--medium);
     }
 
+    /* ---- market-only flavor: sits apart because it can't be ordered here ---- */
+    .flavor-secret {
+      display: flex;
+      align-items: baseline;
+      gap: 11px;
+      margin-top: 4px;
+      padding-top: 13px;
+      border-top: 1px dashed var(--taupe);
+    }
+
+    .flavor-secret .flavor-dot {
+      background: transparent;
+      box-shadow: inset 0 0 0 1.5px var(--promo);
+    }
+
+    .flavor-secret .flavor-name { color: var(--promo); }
+
     .flavor-note {
       margin-top: 58px;
       text-align: center;
@@ -631,6 +678,7 @@
     @media (max-width: 560px) {
       .flavor-list { grid-template-columns: 1fr; }
       .menu-item-head { gap: 6px; }
+      .menu-item-price.on-sale { align-items: flex-start; text-align: left; }
       .flavor-note { margin-top: 44px; }
     }
 
@@ -1011,6 +1059,14 @@
       min-width: 70px;
     }
 
+    .product-row-price s {
+      font-weight: 400;
+      color: var(--warm-gray);
+      margin-right: 3px;
+    }
+
+    .product-row-price strong { color: var(--promo); }
+
     .form-products-label {
       font-size: 0.76rem;
       letter-spacing: 0.1em;
@@ -1346,7 +1402,7 @@
               <h3 class="menu-item-name" data-i18n="menu.item1.title">西班牙瑪德蓮</h3>
               <span class="menu-item-en" data-i18n="menu.item1.tag">Spanish Madeleine</span>
             </div>
-            <span class="menu-item-price" data-i18n="menu.item1.price">原價 NT$ 60</span>
+            <span class="menu-item-price" data-i18n="menu.item1.price">NT$ 60</span>
           </div>
           <p class="menu-item-desc" data-i18n="menu.item1.desc">以西班牙傳統食譜為本，外皮微酥、內裡鬆軟綿密，香氣馥郁。每一口都是香濃溫暖的幸福滋味。</p>
           <div class="menu-item-flavors">
@@ -1369,7 +1425,10 @@
               <h3 class="menu-item-name" data-i18n="menu.item2.title">手工軟餅乾</h3>
               <span class="menu-item-en" data-i18n="menu.item2.tag">Soft Cookie</span>
             </div>
-            <span class="menu-item-price" data-i18n="menu.item2.price">原價 NT$ 120</span>
+            <span class="menu-item-price on-sale">
+              <span class="price-flag" data-i18n="menu.item2.promo">優惠中</span>
+              <span class="price-rows" data-i18n-html="menu.item2.price">大 <s>NT$ 120</s> <strong>NT$ 100</strong><br>小 <s>NT$ 65</s> <strong>NT$ 50</strong></span>
+            </span>
           </div>
           <p class="menu-item-desc" data-i18n="menu.item2.desc">職人手感整型，外緣微酥、中心柔軟，嚴選頂級巧克力豆，入口即化的層次讓人難以抗拒。</p>
           <div class="menu-item-flavors">
@@ -1388,7 +1447,7 @@
               <li class="flavor-item">
                 <span class="flavor-dot" style="--dot:#3B2A24" aria-hidden="true"></span>
                 <span class="flavor-text">
-                  <span class="flavor-name" data-i18n="flavors.g1.f2">三重巧克力</span>
+                  <span class="flavor-name" data-i18n="flavors.g1.f2">三重奏可可</span>
                   <span class="flavor-sub" data-i18n="flavors.g1.f2.sub">Triple Chocolate</span>
                 </span>
               </li>
@@ -1407,6 +1466,13 @@
                 </span>
               </li>
             </ul>
+            <div class="flavor-secret">
+              <span class="flavor-dot" aria-hidden="true"></span>
+              <span class="flavor-text">
+                <span class="flavor-name" data-i18n="flavors.g1.secret">市集限定隱藏口味</span>
+                <span class="flavor-sub" data-i18n="flavors.g1.secret.sub">每場市集現場公布，不提供線上訂購</span>
+              </span>
+            </div>
           </div>
         </div>
       </article>
@@ -1422,7 +1488,7 @@
               <h3 class="menu-item-name" data-i18n="menu.item3.title">軟心布朗尼</h3>
               <span class="menu-item-en" data-i18n="menu.item3.tag">Fudge Brownie</span>
             </div>
-            <span class="menu-item-price" data-i18n="menu.item3.price">原價 NT$ 100</span>
+            <span class="menu-item-price" data-i18n="menu.item3.price">NT$ 100</span>
           </div>
           <p class="menu-item-desc" data-i18n="menu.item3.desc">濃郁可可香氣，外層薄脆、內裡絲滑流心。以歐洲進口頂級可可製成，巧克力愛好者的終極饗宴。</p>
           <div class="menu-item-flavors">
@@ -1445,7 +1511,7 @@
               <h3 class="menu-item-name" data-i18n="menu.item4.title">迷你一口捲</h3>
               <span class="menu-item-en" data-i18n="menu.item4.tag">Bites</span>
             </div>
-            <span class="menu-item-price" data-i18n="menu.item4.price">價格請洽詢</span>
+            <span class="menu-item-price" data-i18n="menu.item4.price">NT$ 60</span>
           </div>
           <p class="menu-item-desc" data-i18n="menu.item4.desc">一口大小的手工捲，外圈烤得微焦香脆，內裡柔軟濕潤。七款口味可自由搭配，一次嚐到多種風味。</p>
           <div class="menu-item-flavors">
@@ -1625,7 +1691,11 @@
           </li>
           <li>
             <span class="ico">💳</span>
-            <span data-i18n-html="ordering.info.li4">價位帶 NT$ 100–200<br>依商品種類及數量而定</span>
+            <span data-i18n-html="ordering.info.li4">單顆定價 NT$ 60–120<br>軟餅乾優惠中，NT$ 50 起</span>
+          </li>
+          <li>
+            <span class="ico">🧺</span>
+            <span data-i18n-html="ordering.info.li5">市集場次有隱藏口味<br>僅限現場，不提供線上訂購</span>
           </li>
         </ul>
         <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="btn-outline-light" data-i18n="ordering.info.cta">立即私訊詢問</a>
@@ -1781,7 +1851,11 @@
                     <option value="盒" data-i18n="form.unit.box" hidden disabled>盒</option><!-- 尚未開放：準備好後移除 hidden disabled -->
                   </select>
                 </div>
-                <div class="product-row-price" data-i18n="prod.cookie.price">NT$ 120／顆</div>
+                <select name="size_cookie" id="cookieSize" class="product-size-select" aria-label="手工軟餅乾尺寸">
+                  <option value="大" data-i18n="form.size.large">大</option>
+                  <option value="小" data-i18n="form.size.small">小</option>
+                </select>
+                <div class="product-row-price" id="cookiePrice" data-i18n-html="prod.cookie.price.large"><s>NT$ 120</s> <strong>NT$ 100</strong>／顆</div>
               </div>
 
               <div class="product-row">
@@ -1959,6 +2033,17 @@
       }
     }
   })();
+
+  /* ----- Order form: cookie price follows the selected size ----- */
+  const cookieSize  = document.getElementById('cookieSize');
+  const cookiePrice = document.getElementById('cookiePrice');
+  if (cookieSize && cookiePrice) {
+    cookieSize.addEventListener('change', () => {
+      const key = cookieSize.value === '小' ? 'prod.cookie.price.small' : 'prod.cookie.price.large';
+      cookiePrice.setAttribute('data-i18n-html', key);
+      if (window.i18n) cookiePrice.innerHTML = window.i18n.t(key).replace(/\n/g, '<br>');
+    });
+  }
 
   /* ----- Order form: AJAX submit (no full reload) ----- */
   const orderForm = document.getElementById('orderForm');
