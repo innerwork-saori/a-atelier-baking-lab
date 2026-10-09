@@ -11,6 +11,7 @@ window.LOCALES.en = {
   /* ---- Nav ---- */
   "nav.about":    "About",
   "nav.menu":     "Pastries & Flavors",
+  "nav.reviews":  "Reviews",
   "nav.ordering": "How to Order",
   "nav.form":     "Order Now",
   "nav.contact":  "Contact",
@@ -109,6 +110,16 @@ window.LOCALES.en = {
   "more.item3.tag":       "Rich Cheesecake",
   "more.item3.title":     "Rich Cheesecake",
   "more.item3.desc":      "Made with premium cream cheese — silky smooth, with a perfect balance of rich creaminess and gentle tang. A buttery cookie crust adds beautiful texture. A must for cheesecake lovers.",
+
+  /* ---- Reviews ---- */
+  "reviews.label":   "Kind Words",
+  "reviews.title":   "From people who’ve tried them",
+  "reviews.r1.p1":   "I love the sweet, soft feel of American-style soft cookies, but this one tastes like a soft cookie upgraded several times over. The flavor is so rich — my untrained tongue could only pick out a hint of cinnamon; beyond that, all I can say is that it’s really rich 🫣 There’s something like walnut (?) inside too, which adds even more texture, and the firmness of the walnut felt like a really clever touch. Because it’s on the soft side as well, it doesn’t bite very differently from the cookie, so there are lots of layers without it going too soft one moment and too hard the next.",
+  "reviews.r1.p2":   "Besides saying thank you, I also want to share my love for this cookie XDD",
+  "reviews.r2":      "The walnut ones are also delicious!\nThe chocolate flavor is amazing!",
+  "reviews.r3":      "The chocolate really stands out, haha",
+  "reviews.r4":      "Delicious!",
+  "reviews.source":  "From messages customers sent us",
 
   /* ---- Ordering ---- */
   "ordering.label":      "How to Order",
