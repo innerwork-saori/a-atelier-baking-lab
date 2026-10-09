@@ -985,6 +985,105 @@
       border-color: rgba(247,242,236,0.8);
     }
 
+    /* ---- delivery fees: one row per fee tier, the fee is what you scan for ---- */
+    .delivery-fees {
+      margin-top: 88px;
+      max-width: 860px;
+    }
+
+    .delivery-fees-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .delivery-fees-intro {
+      font-size: 0.87rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+      margin-bottom: 26px;
+    }
+
+    .fee-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .fee-row:last-child { border-bottom: 1px solid var(--line); }
+
+    .fee-amount {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--dark);
+    }
+
+    .fee-range {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+    }
+
+    .fee-places { display: flex; flex-direction: column; gap: 6px; }
+
+    .fee-city {
+      display: grid;
+      grid-template-columns: 4.5em minmax(0, 1fr);
+      gap: 12px;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .fee-city-name {
+      font-size: 0.75rem;
+      color: var(--medium);
+      padding-top: 2px;
+    }
+
+    .fee-place { white-space: nowrap; }
+
+    .fee-row-none .fee-amount { font-size: 1rem; color: var(--warm-gray); }
+    .fee-row-none .fee-city   { color: var(--warm-gray); }
+
+    .fee-row-none .fee-tip {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    .delivery-fees-note {
+      margin-top: 14px;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+    }
+
+    .delivery-fees-free {
+      margin: -12px 0 26px;
+      font-size: 0.87rem;
+      color: var(--dark);
+    }
+
+    .delivery-fees-free strong { color: var(--promo); }
+
+    .form-hint { font-size: 0.75rem; color: var(--warm-gray); }
+
+    .form-hint a {
+      color: var(--accent);
+      border-bottom: 1px solid currentColor;
+    }
+
+    @media (max-width: 600px) {
+      .delivery-fees { margin-top: 64px; }
+      .fee-row { grid-template-columns: 1fr; gap: 10px; }
+    }
+
     /* ===========================
        ORDER FORM
     =========================== */
@@ -1034,6 +1133,7 @@
     }
 
     .form-group { display: flex; flex-direction: column; gap: 7px; }
+    .form-group[hidden] { display: none; }
 
     .form-group label {
       font-size: 0.76rem;
@@ -1170,6 +1270,30 @@
       margin-bottom: 2px;
     }
 
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 18px;
+      background-color: var(--warm-white);
+      border: 1px solid var(--line);
+      font-size: 0.83rem;
+      line-height: 1.75;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .form-consent input {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      accent-color: var(--dark);
+      cursor: pointer;
+    }
+
+    .form-consent:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
     .btn-submit {
       display: inline-block;
       padding: 16px 48px;
@@ -1291,6 +1415,10 @@
       padding-top: 28px;
       line-height: 2;
     }
+
+    /* registration no. must stay readable: darker than the rest of the footer */
+    .footer-reg    { color: var(--warm-gray); }
+    .footer-reg-no { white-space: nowrap; }
 
     /* ===========================
        SCROLL-TO-TOP
@@ -1806,7 +1934,7 @@
             <div class="step-num">03</div>
             <div class="step-body">
               <div class="step-title" data-i18n="ordering.step3.title">確認訂單與付款</div>
-              <p class="step-desc" data-i18n="ordering.step3.desc">收到表單後，我們會透過 Instagram 或電話與您確認訂單細節，並提供付款資訊。</p>
+              <p class="step-desc" data-i18n="ordering.step3.desc">收到表單後，我們會透過 Instagram 或電話與您確認訂單細節，並提供匯款資訊。所有訂單皆需先轉帳付款。</p>
             </div>
           </div>
 
@@ -1814,7 +1942,7 @@
             <div class="step-num">04</div>
             <div class="step-body">
               <div class="step-title" data-i18n="ordering.step4.title">新鮮出爐，等待收貨</div>
-              <p class="step-desc" data-i18n="ordering.step4.desc">確認訂單後 3–5 個工作天內完成製作，可選擇宅配到府或市集現場取貨。</p>
+              <p class="step-desc" data-i18n="ordering.step4.desc">確認訂單後 3–5 個工作天內完成製作，可選擇大台北地區外送面交，或市集現場取貨。</p>
             </div>
           </div>
 
@@ -1827,7 +1955,7 @@
         <ul class="info-items">
           <li>
             <span class="ico">📍</span>
-            <span data-i18n-html="ordering.info.li1">線上工作室，無實體門市<br>接受訂購後宅配或市集取貨</span>
+            <span data-i18n-html="ordering.info.li1">線上工作室，無實體門市<br>大台北地區外送面交，或市集取貨</span>
           </li>
           <li>
             <span class="ico">⏱</span>
@@ -1846,13 +1974,25 @@
             <span data-i18n-html="ordering.info.min">瑪德蓮、布朗尼、一口捲 6 顆起訂<br>軟餅乾大 4 顆、小 8 顆起訂</span>
           </li>
           <li>
+            <span class="ico">🧾</span>
+            <span data-i18n-html="ordering.info.pay">所有訂單皆需先轉帳匯款<br>逾期未取：商品金額退還 50%，外送費不退還</span>
+          </li>
+          <li>
             <span class="ico">🧺</span>
             <span data-i18n-html="ordering.info.li5">市集場次有隱藏口味<br>僅限現場，不提供線上訂購</span>
           </li>
         </ul>
         <a href="https://www.instagram.com/a_atelier_baking_lab/" target="_blank" rel="noopener" class="btn-outline-light" data-i18n="ordering.info.cta">立即私訊詢問</a>
       </div>
+    </div>
 
+    <!-- Delivery fees: rows built from DELIVERY_DISTRICTS so the table and the form never disagree -->
+    <div class="delivery-fees" id="delivery-fees">
+      <h3 class="delivery-fees-title" data-i18n="deliv.title">大台北外送費</h3>
+      <p class="delivery-fees-intro" data-i18n="deliv.intro">老闆親自外送、面交，外送費依您所在的行政區計算：</p>
+      <p class="delivery-fees-free" data-i18n-html="deliv.free">訂單滿 <strong>NT$ 1,000</strong> 免外送費（不提供外送的地區除外）</p>
+      <div class="fee-table" id="feeTable"></div>
+      <p class="delivery-fees-note" data-i18n="deliv.note">距離為從士林區公所出發的估算行車距離。</p>
     </div>
   </div>
 </section>
@@ -1876,7 +2016,7 @@
         <div class="order-notes">
           <div class="order-note">
             <span class="ico">💰</span>
-            <span data-i18n-html="form.note.price">標示價格均為<strong>單顆</strong>售價；如需整盒購買，請選擇「盒」，我們將另行報價</span>
+            <span data-i18n-html="form.note.price">標示價格均為<strong>單顆</strong>售價；如需包裝，另行報價</span>
           </div>
           <div class="order-note">
             <span class="ico">📦</span>
@@ -1888,11 +2028,15 @@
           </div>
           <div class="order-note">
             <span class="ico">🚚</span>
-            <span data-i18n="form.note2">提供宅配到府或市集現場取貨</span>
+            <span data-i18n="form.note2">大台北地區由老闆親自外送面交，外送費依地區計算；訂單滿 NT$ 1,000 免外送費</span>
           </div>
           <div class="order-note">
             <span class="ico">💳</span>
-            <span data-i18n="form.note3">付款方式將於確認訂單時說明</span>
+            <span data-i18n-html="form.note3">不論外送或市集取貨，所有訂單皆需<strong>先轉帳匯款</strong></span>
+          </div>
+          <div class="order-note">
+            <span class="ico">⏳</span>
+            <span data-i18n-html="form.note.overdue"><strong>逾期未取</strong>：商品金額退還 50%，外送費不退還；如需重新製作，請另外下單並付款。<br>例：商品 NT$&nbsp;800＋外送費 NT$&nbsp;120，逾期未取退還 NT$&nbsp;400</span>
           </div>
           <div class="order-note">
             <span class="ico">🎁</span>
@@ -1955,10 +2099,17 @@
               <label for="delivery_method" data-i18n="form.label.delivery">取貨方式 *</label>
               <select id="delivery_method" name="delivery_method" required>
                 <option value="" disabled selected data-i18n="form.delivery.select">請選擇</option>
-                <option value="宅配到府" data-i18n="form.delivery.home">宅配到府</option>
+                <option value="外送面交" data-i18n="form.delivery.home">外送面交（大台北地區）</option>
                 <option value="市集現場取貨" data-i18n="form.delivery.market">市集現場取貨</option>
               </select>
             </div>
+          </div>
+
+          <!-- Delivery district: shown only for in-person delivery; options built from DELIVERY_DISTRICTS -->
+          <div class="form-group" id="districtGroup" hidden>
+            <label for="delivery_district" data-i18n="form.label.district">外送地區 *</label>
+            <select id="delivery_district" name="delivery_district" disabled></select>
+            <p class="form-hint"><span data-i18n="form.district.free">訂單滿 NT$ 1,000 免外送費。</span><a href="#delivery-fees" data-i18n="form.district.hint">查看各區外送費</a></p>
           </div>
 
           <!-- Product selection -->
@@ -2096,6 +2247,12 @@
             <textarea id="notes" name="notes" placeholder="口味偏好、禮盒文字、過敏原告知、大量訂購說明⋯⋯等" data-i18n-placeholder="form.ph.notes"></textarea>
           </div>
 
+          <!-- Payment & late-pickup policy: must be ticked before the order can be sent -->
+          <label class="form-consent">
+            <input type="checkbox" name="policy_agree" value="已同意：先轉帳匯款；逾期未取商品金額退還 50%、外送費不退；重做另外下單付款" required>
+            <span data-i18n="form.consent">我已了解並同意：所有訂單需先轉帳匯款。逾期未取時，商品金額退還 50%，外送費不退還；如需重新製作，須另外下單並付款。*</span>
+          </label>
+
           <p class="form-privacy" data-i18n="form.privacy">提交表單即表示您同意我們使用您的聯絡資料與您確認訂單。您的個人資料僅用於本次訂購用途。</p>
 
           <button type="submit" class="btn-submit" data-i18n="form.submit">送出訂購單並取得報價</button>
@@ -2128,7 +2285,8 @@
 
     <p class="footer-copy">
       <span data-i18n="footer.copy1">© 2025 A Atelier Baking Lab</span><br>
-      <span data-i18n="footer.copy2">西班牙傳統手作 × 現代烘焙美學 · Taipei, Taiwan</span>
+      <span data-i18n="footer.copy2">西班牙傳統手作 × 現代烘焙美學 · Taipei, Taiwan</span><br>
+      <span class="footer-reg"><span data-i18n="footer.reg">食品業者登錄字號</span> <span class="footer-reg-no">A-202327136-00000-3</span></span>
     </p>
   </div>
 </section>
@@ -2221,6 +2379,157 @@
       cookieQty.value = prev === 0 ? '0' : String(Math.min(Math.max(prev, min), min * 2));
     });
   }
+
+  /* ----- Delivery fees by district -----
+     Fee tiers by estimated driving distance from the Shilin District Office
+     (straight line × 1.3): ≤5 km free, ≤10 km NT$50, ≤20 km NT$120, beyond that no delivery.
+     fee: 0 / 50 / 120, or null for no delivery. Listed nearest first. */
+  const DELIVERY_DISTRICTS = [
+    { city: 'tpe', zh: '士林', en: 'Shilin',     fee: 0 },
+    { city: 'tpe', zh: '大同', en: 'Datong',     fee: 0 },
+    { city: 'tpe', zh: '中山', en: 'Zhongshan',  fee: 0 },
+    { city: 'ntpc', zh: '三重', en: 'Sanchong',  fee: 50 },
+    { city: 'ntpc', zh: '蘆洲', en: 'Luzhou',    fee: 50 },
+    { city: 'tpe', zh: '北投', en: 'Beitou',     fee: 50 },
+    { city: 'tpe', zh: '中正', en: 'Zhongzheng', fee: 50 },
+    { city: 'tpe', zh: '萬華', en: 'Wanhua',     fee: 50 },
+    { city: 'tpe', zh: '內湖', en: 'Neihu',      fee: 50 },
+    { city: 'tpe', zh: '松山', en: 'Songshan',   fee: 50 },
+    { city: 'tpe', zh: '大安', en: 'Da’an',      fee: 120 },
+    { city: 'tpe', zh: '信義', en: 'Xinyi',      fee: 120 },
+    { city: 'ntpc', zh: '五股', en: 'Wugu',      fee: 120 },
+    { city: 'ntpc', zh: '永和', en: 'Yonghe',    fee: 120 },
+    { city: 'ntpc', zh: '泰山', en: 'Taishan',   fee: 120 },
+    { city: 'tpe', zh: '南港', en: 'Nangang',    fee: 120 },
+    { city: 'ntpc', zh: '中和', en: 'Zhonghe',   fee: 120 },
+    { city: 'ntpc', zh: '板橋', en: 'Banqiao',   fee: 120 },
+    { city: 'ntpc', zh: '新莊', en: 'Xinzhuang', fee: 120 },
+    { city: 'ntpc', zh: '淡水', en: 'Tamsui',    fee: 120 },
+    { city: 'tpe', zh: '文山', en: 'Wenshan',    fee: 120 },
+    { city: 'ntpc', zh: '林口', en: 'Linkou',    fee: 120 },
+    { city: 'ntpc', zh: '八里', en: 'Bali',      fee: 120 },
+    { city: 'ntpc', zh: '深坑', en: 'Shenkeng',  fee: 120 },
+    { city: 'ntpc', zh: '新店', en: 'Xindian',   fee: 120 },
+    { city: 'ntpc', zh: '汐止', en: 'Xizhi',     fee: 120 },
+    { city: 'ntpc', zh: '樹林', en: 'Shulin',    fee: 120 },
+    { city: 'ntpc', zh: '土城', en: 'Tucheng',   fee: null },
+    { city: 'ntpc', zh: '石碇', en: 'Shiding',   fee: null },
+    { city: 'ntpc', zh: '三芝', en: 'Sanzhi',    fee: null },
+    { city: 'ntpc', zh: '金山', en: 'Jinshan',   fee: null },
+    { city: 'ntpc', zh: '萬里', en: 'Wanli',     fee: null },
+    { city: 'ntpc', zh: '石門', en: 'Shimen',    fee: null },
+    { city: 'ntpc', zh: '鶯歌', en: 'Yingge',    fee: null },
+    { city: 'ntpc', zh: '平溪', en: 'Pingxi',    fee: null },
+    { city: 'ntpc', zh: '三峽', en: 'Sanxia',    fee: null },
+    { city: 'ntpc', zh: '烏來', en: 'Wulai',     fee: null },
+    { city: 'ntpc', zh: '坪林', en: 'Pinglin',   fee: null },
+    { city: 'ntpc', zh: '瑞芳', en: 'Ruifang',   fee: null },
+    { city: 'ntpc', zh: '雙溪', en: 'Shuangxi',  fee: null },
+    { city: 'ntpc', zh: '貢寮', en: 'Gongliao',  fee: null },
+  ];
+  const FEE_TIERS = [0, 50, 120, null];
+  const CITIES = ['tpe', 'ntpc'];
+
+  const feeTable       = document.getElementById('feeTable');
+  const deliveryMethod = document.getElementById('delivery_method');
+  const districtGroup  = document.getElementById('districtGroup');
+  const districtSelect = document.getElementById('delivery_district');
+
+  function pageLang() {
+    return document.documentElement.lang === 'en' ? 'en' : 'zh';
+  }
+
+  function tr(key) {
+    const L = window.LOCALES || {};
+    return (L[pageLang()] && L[pageLang()][key]) || (L.zh && L.zh[key]) || key;
+  }
+
+  const tierKey = fee => (fee === null ? 'none' : String(fee));
+  const placeName = d => (pageLang() === 'en' ? d.en : d.zh + '區');
+
+  function renderFeeTable() {
+    if (!feeTable) return;
+    const sep = tr('deliv.sep');
+    feeTable.innerHTML = '';
+    FEE_TIERS.forEach(fee => {
+      const k = tierKey(fee);
+      const row = document.createElement('div');
+      row.className = 'fee-row' + (fee === null ? ' fee-row-none' : '');
+
+      const head = document.createElement('div');
+      head.innerHTML = '<span class="fee-amount"></span><span class="fee-range"></span>';
+      head.querySelector('.fee-amount').textContent = tr('deliv.fee.' + k);
+      head.querySelector('.fee-range').textContent  = tr('deliv.range.' + k);
+
+      const places = document.createElement('div');
+      places.className = 'fee-places';
+      CITIES.forEach(city => {
+        const names = DELIVERY_DISTRICTS.filter(d => d.fee === fee && d.city === city).map(placeName);
+        if (!names.length) return;
+        const line = document.createElement('div');
+        line.className = 'fee-city';
+        line.innerHTML = '<span class="fee-city-name"></span><span></span>';
+        line.firstChild.textContent = tr('deliv.city.' + city);
+        names.forEach((name, i) => {
+          const n = document.createElement('span');
+          n.className = 'fee-place';   // keeps 「松山區」 from breaking before 區
+          n.textContent = name;
+          line.lastChild.appendChild(n);
+          if (i < names.length - 1) line.lastChild.append(sep);   // separator outside the span so lines can wrap here
+        });
+        places.appendChild(line);
+      });
+      if (fee === null) {
+        const tip = document.createElement('p');
+        tip.className = 'fee-tip';
+        tip.textContent = tr('deliv.none.tip');
+        places.appendChild(tip);
+      }
+
+      row.append(head, places);
+      feeTable.appendChild(row);
+    });
+  }
+
+  function renderDistrictOptions() {
+    if (!districtSelect) return;
+    const prev = districtSelect.value;
+    districtSelect.innerHTML = '';
+    districtSelect.add(new Option(tr('form.district.select'), ''));
+    districtSelect.options[0].disabled = true;
+    CITIES.forEach(city => {
+      const group = document.createElement('optgroup');
+      group.label = tr('deliv.city.' + city);
+      DELIVERY_DISTRICTS.filter(d => d.city === city).forEach(d => {
+        const label = placeName(d) + '　' + tr('form.district.fee.' + tierKey(d.fee));
+        // submitted value stays in Chinese with the fee, so the order email reads the same in either language
+        const value = d.zh + '區（' + (d.fee === null ? '不外送' : d.fee === 0 ? '免運費' : '外送費 NT$ ' + d.fee) + '）';
+        const opt = new Option(label, value);
+        opt.disabled = d.fee === null;
+        group.appendChild(opt);
+      });
+      districtSelect.appendChild(group);
+    });
+    districtSelect.value = prev;
+    if (districtSelect.value !== prev || !prev) districtSelect.selectedIndex = 0;
+  }
+
+  function syncDistrictField() {
+    if (!deliveryMethod || !districtGroup || !districtSelect) return;
+    const isDelivery = deliveryMethod.value === '外送面交';
+    districtGroup.hidden    = !isDelivery;
+    districtSelect.disabled = !isDelivery;   // disabled fields are not submitted
+    districtSelect.required = isDelivery;
+  }
+
+  renderFeeTable();
+  renderDistrictOptions();
+  syncDistrictField();
+  if (deliveryMethod) deliveryMethod.addEventListener('change', syncDistrictField);
+
+  // i18n.js switches <html lang>; rebuild the generated text when it does
+  new MutationObserver(() => { renderFeeTable(); renderDistrictOptions(); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   /* ----- Order form: AJAX submit (no full reload) ----- */
   const orderForm = document.getElementById('orderForm');
