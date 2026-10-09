@@ -1030,6 +1030,12 @@
       margin-top: 2px;
     }
 
+    .product-row-min {
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
     .product-row select {
       font-family: 'Zen Maru Gothic', sans-serif;
       font-size: 0.83rem;
@@ -1701,6 +1707,10 @@
             <span data-i18n-html="ordering.info.li4">單顆定價 NT$ 60–120<br>軟餅乾優惠中，NT$ 50 起</span>
           </li>
           <li>
+            <span class="ico">📦</span>
+            <span data-i18n-html="ordering.info.min">瑪德蓮、布朗尼、一口捲 6 顆起訂<br>軟餅乾大 4 顆、小 8 顆起訂</span>
+          </li>
+          <li>
             <span class="ico">🧺</span>
             <span data-i18n-html="ordering.info.li5">市集場次有隱藏口味<br>僅限現場，不提供線上訂購</span>
           </li>
@@ -1732,6 +1742,10 @@
           <div class="order-note">
             <span class="ico">💰</span>
             <span data-i18n-html="form.note.price">標示價格均為<strong>單顆</strong>售價；如需整盒購買，請選擇「盒」，我們將另行報價</span>
+          </div>
+          <div class="order-note">
+            <span class="ico">📦</span>
+            <span data-i18n-html="form.note.min">最低訂購量：瑪德蓮、布朗尼、一口捲各 <strong>6 顆</strong>，軟餅乾大 <strong>4 顆</strong>、小 <strong>8 顆</strong>；其他商品請填寫表單，我們會回覆您</span>
           </div>
           <div class="order-note">
             <span class="ico">⏱</span>
@@ -1821,15 +1835,18 @@
                 <div>
                   <div class="product-row-name" data-i18n="prod.madeleine.name">西班牙瑪德蓮</div>
                   <div class="product-row-sub" data-i18n="prod.madeleine.sub">Spanish Madeleine</div>
+                  <div class="product-row-min" data-i18n="prod.madeleine.min">6 顆起訂</div>
                 </div>
                 <div class="product-qty-group">
                   <select name="qty_madeleine" data-i18n-aria="prod.madeleine.name" aria-label="西班牙瑪德蓮數量">
                     <option value="0" data-i18n="form.qty.none">不需要</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12+</option>
                   </select>
                   <select name="unit_madeleine" aria-label="西班牙瑪德蓮單位">
                     <option value="顆" data-i18n="form.unit.piece">顆</option>
@@ -1843,15 +1860,16 @@
                 <div>
                   <div class="product-row-name" data-i18n="prod.cookie.name">手工軟餅乾</div>
                   <div class="product-row-sub" data-i18n="prod.cookie.sub">Soft Cookie</div>
+                  <div class="product-row-min" data-i18n="prod.cookie.min">大 4 顆／小 8 顆起訂</div>
                 </div>
                 <div class="product-qty-group">
                   <select name="qty_cookie" data-i18n-aria="prod.cookie.name" aria-label="手工軟餅乾數量">
                     <option value="0" data-i18n="form.qty.none">不需要</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8+</option>
                   </select>
                   <select name="unit_cookie" aria-label="手工軟餅乾單位">
                     <option value="顆" data-i18n="form.unit.piece">顆</option>
@@ -1869,15 +1887,18 @@
                 <div>
                   <div class="product-row-name" data-i18n="prod.brownie.name">軟心布朗尼</div>
                   <div class="product-row-sub" data-i18n="prod.brownie.sub">Fudge Brownie</div>
+                  <div class="product-row-min" data-i18n="prod.brownie.min">6 顆起訂</div>
                 </div>
                 <div class="product-qty-group">
                   <select name="qty_brownie" data-i18n-aria="prod.brownie.name" aria-label="軟心布朗尼數量">
                     <option value="0" data-i18n="form.qty.none">不需要</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12+</option>
                   </select>
                   <select name="unit_brownie" aria-label="軟心布朗尼單位">
                     <option value="顆" data-i18n="form.unit.piece">顆</option>
@@ -1891,15 +1912,18 @@
                 <div>
                   <div class="product-row-name" data-i18n="prod.bites.name">迷你一口捲</div>
                   <div class="product-row-sub" data-i18n="prod.bites.sub">Mini Bite Rolls</div>
+                  <div class="product-row-min" data-i18n="prod.bites.min">6 顆起訂</div>
                 </div>
                 <div class="product-qty-group">
                   <select name="qty_bites" data-i18n-aria="prod.bites.name" aria-label="迷你一口捲數量">
                     <option value="0" data-i18n="form.qty.none">不需要</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" data-i18n="form.qty.5plus">5+</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12+</option>
                   </select>
                   <select name="unit_bites" aria-label="迷你一口捲單位">
                     <option value="顆" data-i18n="form.unit.piece">顆</option>
@@ -2041,14 +2065,25 @@
     }
   })();
 
-  /* ----- Order form: cookie price follows the selected size ----- */
+  /* ----- Order form: cookie price and minimum follow the selected size ----- */
   const cookieSize  = document.getElementById('cookieSize');
   const cookiePrice = document.getElementById('cookiePrice');
-  if (cookieSize && cookiePrice) {
+  const cookieQty   = document.querySelector('select[name="qty_cookie"]');
+  if (cookieSize && cookiePrice && cookieQty) {
     cookieSize.addEventListener('change', () => {
-      const key = cookieSize.value === '小' ? 'prod.cookie.price.small' : 'prod.cookie.price.large';
+      const isSmall = cookieSize.value === '小';
+      const key = isSmall ? 'prod.cookie.price.small' : 'prod.cookie.price.large';
       cookiePrice.setAttribute('data-i18n-html', key);
       if (window.i18n) cookiePrice.innerHTML = window.i18n.t(key).replace(/\n/g, '<br>');
+
+      // minimum order: large 4, small 8 — options run min … 2·min−1, then "2·min+"
+      const min  = isSmall ? 8 : 4;
+      const prev = Number(cookieQty.value);
+      [...cookieQty.options].slice(1).forEach(o => o.remove());
+      for (let n = min; n <= min * 2; n++) {
+        cookieQty.add(new Option(n === min * 2 ? n + '+' : String(n), String(n)));
+      }
+      cookieQty.value = prev === 0 ? '0' : String(Math.min(Math.max(prev, min), min * 2));
     });
   }
 
